@@ -1,0 +1,31 @@
+//homeSlider
+
+.home-slider{
+  width: 815px;
+  &__item{
+    height: 370px;
+  }
+  &__item-content{
+    position: absolute;
+    left: 50px;
+    bottom: 50px;
+    padding: 15px 35px 15px 15px;
+    background: rgba(0,0,0,0.7);
+  }
+  &__item-title{
+      font-family: 'Roboto-Bold';
+      font-size: 24px;
+      color: white;
+      margin-bottom: 5px;
+  }
+  &__item-text{
+    font-family: 'Roboto-Regular';
+    font-size: 14px;
+    color: white;
+  }
+  .owl-nav{
+    position: absolute;
+    bottom: 0;
+    
+  }
+}

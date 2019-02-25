@@ -1,0 +1,45 @@
+.header{
+  display: flex;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 50px;
+  &__logo{}
+  &__menu{
+    display: flex;
+  }
+  &__menu-item{
+    display: block;
+  }
+  &__menu-link{
+    color: black;
+    text-decoration: none;
+    font-size: 14px;
+    margin-left: 30px;
+    position: relative;
+    padding-bottom: 3px;
+    transition: 0.3s color;
+    &:hover{
+      color: $purple;
+    }
+    &:before,
+    &:after{
+      content: '';
+      height: 2px;
+      width: 0%;
+      position: absolute;
+      bottom: 0;
+      background: $purple;
+      transition: 0.3s width;
+    }
+    &:before{
+      left: 50%;
+    }
+    &:after{
+      right: 50%;
+    }
+    &:hover::before,
+    &:hover::after{
+        width: 50%;
+    }
+  }
+}

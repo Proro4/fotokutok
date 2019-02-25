@@ -1,0 +1,20 @@
+@import "fonts";
+a,p{
+  font-family: 'Roboto-Regular';
+}
+@import "vars";
+@import "home";
+@import "heeader";
+@import "sliders";
+.container{
+  display: flex;
+  justify-content: center;
+}
+.row-b{
+  padding: 0 30px;
+  width: 1450px;
+}
+.row-m{
+  padding: 0 30px;
+  width: 1100px;
+}
