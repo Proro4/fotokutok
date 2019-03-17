@@ -3,9 +3,15 @@ a,p{
   font-family: 'Roboto-Regular';
 }
 @import "vars";
+@import "animation";
 @import "home";
 @import "heeader";
+@import "footer";
 @import "sliders";
+@import "news";
+body{
+  margin: 0;
+}
 .container{
   display: flex;
   justify-content: center;
@@ -18,3 +24,4 @@ a,p{
   padding: 0 30px;
   width: 1100px;
 }
+@import "media";

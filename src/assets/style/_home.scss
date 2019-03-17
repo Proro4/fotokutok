@@ -1,4 +1,213 @@
 .home-top{
   display: flex;
   justify-content: space-between;
+  margin-bottom: 100px;
+}
+.news-filter{
+  background: $corporeal;
+  padding: 15px;
+  border-radius: 10px;
+  &__title{
+    text-align: center;
+    font-family: 'Roboto-Bold';
+    margin-bottom: 20px;
+  }
+  &__list{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+  }
+  &__list-item{
+    margin-bottom: 10px;
+    display: block;
+    position: relative;
+    font-size: 14px;
+    font-family: 'Roboto-Regular';
+    color: black;
+    &.date{
+      margin-top: 15px;
+    }
+    input[type='radio']{
+      opacity: 0;
+    }
+    .news-filter__item-span{
+      cursor: pointer;
+      margin-left: 5px;
+      position: relative;
+      &:before{
+        content: '';
+        position: absolute;
+        left: -25px;
+        top: 0;
+        height: 15px;
+        width: 15px;
+        background: white;
+        border-radius: 5px;
+        border: 1px solid black;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+      }
+      &:after{
+        content: '';
+        position: absolute;
+        left: -22px;
+        top: 3px;
+        height: 11px;
+        width: 11px;
+        background: black;
+        border-radius: 5px;
+        display: none;
+      }
+    }
+    input[type='radio']:checked + .news-filter__item-span{
+      &:before{
+        animation: radioChamge 0.3s 1;
+      }
+      &:after{
+        display: block;
+        animation: radioChamge 0.3s 1;
+      }
+    }
+  }
+  &__date{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    input{
+      text-align: center;
+      height: 22px;
+      width: 135px;
+      background: white;
+      border-radius: 5px;
+      border: 1px solid black;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+    }
+  }
+  &__butt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    margin-top: 15px;
+    width: 100%;
+    button{
+      display: flex;
+      min-height: 45px;
+      min-width: 135px;
+      justify-content: center;
+      align-items: center;
+      border-radius: 5px;
+      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.15);
+      background: $darkGray;
+      color: #fff;
+      font-family: 'Roboto-Bold';
+      text-transform: uppercase;
+      font-size: 18px;
+      cursor: pointer;
+      border: 0;
+      border-bottom:2px solid black;
+      &:focus{
+        outline: none;
+      }
+      &:active{
+        box-shadow: 0px -2px 5px rgba(0, 0, 0, 0.3);
+        border-bottom: 0;
+      }
+    }
+  }
+}
+.home-content{
+  margin-top: 40px;
+}
+.news{
+  &__list{
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+  }
+  &__list-item{
+    display: flex;
+    width: 48%;
+    margin-bottom: 35px;
+    text-decoration: none;
+    position: relative;
+    &:before,
+    &:after{
+      content: '';
+      position: absolute;
+      height: 0px;
+      width: 100%;
+      background: $gray;
+      left: 0;
+      transition: 0.3s height;
+      border-radius: 10px;
+    }
+    &:before{
+      top: -1px;
+    }
+    &:after{
+      bottom: -1px;
+    }
+    &:hover{
+      .news__item-more{
+        opacity: 1;
+        transform: translate3d(0px, 0, 0);
+      }
+      &:before,
+      &:after{
+        height: 2px;
+      }
+    }
+  }
+  &__item-img{
+    height: 215px;
+    width: 215px;
+    min-width: 215px;
+    min-height: 215px;
+    margin-right:35px;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 5px;
+    }
+  }
+  &__item-content{
+   display: flex;
+    flex-direction: column;
+  }
+  &__item-info{
+    display: flex;
+    font-size: 10px;
+    color: $gray;
+    font-family: 'Roboto-Regular';
+    margin-bottom: 15px;
+  }
+  &__item-title{
+    font-size: 20px;
+    font-family: 'Roboto-Bold';
+    color: black;
+    margin-bottom: 5px;
+  }
+  &__item-text{
+    font-size: 14px;
+    font-family: 'Roboto-Regular';
+    color: black;
+  }
+  &__item-more{
+    position: absolute;
+    right: 0;
+    bottom: 3px;
+    font-size: 10px;
+    font-family: 'Roboto-Regular';
+    color: black;
+    opacity: 0;
+    transform: translate3d(20px, 0, 0);
+    pointer-events: none;
+    transition: 0.3s transform, 0.3s opacity;
+    svg{
+      margin-left: 10px;
+    }
+  }
 }

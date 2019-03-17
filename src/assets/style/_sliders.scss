@@ -4,6 +4,9 @@
   width: 815px;
   &__item{
     height: 370px;
+    img{
+      border-radius: 5px;
+    }
   }
   &__item-content{
     position: absolute;
@@ -26,6 +29,10 @@
   .owl-nav{
     position: absolute;
     bottom: 0;
-    
+  }
+  .owl-dots{
+    position: absolute;
+    width: 100%;
+    text-align: center;
   }
 }

@@ -1,0 +1,16 @@
+.footer{
+  margin-top: 50px;
+  width: 100%;
+  background: $corporeal;
+  &__content{
+    height: 65px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    span{
+      color: $gray2;
+      font-family: Roboto-Regular;
+      font-size: 12px;
+    }
+  }
+}
