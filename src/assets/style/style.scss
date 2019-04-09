@@ -11,6 +11,7 @@ a,p{
 @import "news";
 body{
   margin: 0;
+  overflow-x: hidden;
 }
 .container{
   display: flex;
