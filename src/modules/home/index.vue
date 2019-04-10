@@ -70,9 +70,9 @@
                 <div class="news">
                     <div class="news__list">
                         <router-link
-                                :to="{name:'news-page'}"
+                                :to="{name:'news-page', params: {id: item.id }}"
                                 class="news__list-item"
-                                v-for="(item, index) in info.data"
+                                v-for="(item, index) in newsList"
                                 :key="index">
 
                             <div class="news__item-img">
@@ -84,10 +84,10 @@
                                 </div>
                                 <div class="news__item-info">
                                     <div class="news__item-date">06 02 2019</div>
-                                    <div class="news__item-view">3</div>
+                                    <!--<div class="news__item-view">3</div>-->
                                 </div>
                                 <div class="news__item-text">
-                                    {{item.text}}
+                                    {{item.textShort}}
                                 </div>
                                 <div class="news__item-more">
                                     Далее

@@ -132,7 +132,6 @@
     margin-bottom: 35px;
     text-decoration: none;
     position: relative;
-    &:before,
     &:after{
       content: '';
       position: absolute;
@@ -143,9 +142,6 @@
       transition: 0.3s height;
       border-radius: 10px;
     }
-    &:before{
-      top: -1px;
-    }
     &:after{
       bottom: -1px;
     }
@@ -154,7 +150,6 @@
         opacity: 1;
         transform: translate3d(0px, 0, 0);
       }
-      &:before,
       &:after{
         height: 2px;
       }

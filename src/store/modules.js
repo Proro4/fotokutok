@@ -1,5 +1,5 @@
-import Home from './modules/home';
+import home from './modules/home';
 
 export default {
-    Home
+    home
 }

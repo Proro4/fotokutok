@@ -1,6 +1,7 @@
-import carousel from 'vue-owl-carousel'
+import loader from '../../../../components/loader/index.vue'
+import adminHead from '../admin-head/index.vue'
 import {mapActions, mapGetters} from 'vuex';
-import {NEWS_LIST} from "../../store/mutation-types";
+import {NEWS_LIST} from "../../../../store/mutation-types";
 
 
 export default{
@@ -8,10 +9,9 @@ export default{
         return{
         };
     },
-    mounted(){
-    },
     components:{
-        carousel
+        loader,
+        adminHead
     },
     computed:{
         ...mapGetters({
@@ -26,5 +26,6 @@ export default{
     created(){
         this.fetchContent();
     }
+
 
 }

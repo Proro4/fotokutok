@@ -1,0 +1,79 @@
+.admin{
+
+}
+.admin-head{
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  background: $gray;
+  margin-bottom: 40px;
+  &__list{
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 0;
+  }
+  &__item{
+    display: block;
+    margin-right: 15px;
+    &:last-child{
+      margin-right: 0;
+    }
+  }
+  &__link{
+    text-decoration: none;
+    color: black;
+    font-size: 16px;
+    font-family: 'Roboto-Regular';
+    transition: 0.3s color;
+    &:hover{
+      color: purple;
+    }
+  }
+}
+.admin-blogs{
+  &__list{
+    display: flex;
+    flex-direction: column;
+  }
+  &__item{
+    display: flex;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid $gray;
+  }
+  &__item-img{
+    height: 100px;
+    width: 150px;
+    margin-right: 20px;
+    img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  &__item-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 700px;
+  }
+  &__item-title{
+    font-size: 16px;
+    font-family: 'Roboto-Bold';
+  }
+  &__item-edit{
+    padding-left: 35px;
+    margin-left: 15px;
+    border-left: 1px solid $gray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    a{
+      font-family: 'Roboto-Regular';
+      font-size: 14px;
+      color: $purple
+    }
+  }
+}
