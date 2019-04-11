@@ -73,7 +73,10 @@
     a{
       font-family: 'Roboto-Regular';
       font-size: 14px;
-      color: $purple
+      color: $purple;
+      &:hover{
+        text-decoration: none;
+      }
     }
   }
 }
