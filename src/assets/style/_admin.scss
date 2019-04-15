@@ -79,4 +79,107 @@
       }
     }
   }
+  &__add-blog{
+    font-family: 'Roboto-Regular';
+    font-size: 14px;
+    color: $purple;
+    text-decoration: none;
+    display: flex;
+    span{
+      margin-right: 5px;
+      border-radius: 50%;
+      border: 1px solid $purple;
+      display: flex;
+      height: 15px;
+      width: 15px;
+      flex-direction: column;
+      align-items: center;
+    }
+  }
+}
+.add-block{
+  &__title{
+    font-family: 'Roboto-Bold';
+    color: black;
+    font-size: 24px;
+    position: relative;
+    padding-bottom: 10px;
+    margin-bottom: 25px;
+    &:after{
+      content: '';
+      position: absolute;
+      height:2px;
+      width: 100%;
+      left: 0;
+      top: 100%;
+      background: $gray;
+    }
+  }
+  &__form{
+    display: flex;
+    flex-direction: column;
+  }
+  label{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 25px;
+  }
+  span{
+    display: block;
+    margin-bottom: 10px;
+    font-size: 14px;
+    font-family: 'Roboto-Regular';
+    color: black;
+  }
+  &__image-input{
+    width: 50%;
+    height: 40px;
+    background: white;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: 1px solid $gray;
+    transition: 0.3s border;
+    &:hover{;
+      border: 1px solid $darkGray;
+      outline: none;
+    }
+    &:focus{
+      outline: none;
+    }
+  }
+  &__name-input{
+    height: 40px;
+    width: 50%;
+    border-radius: 5px;
+    border: 1px solid $gray;
+    transition: 0.3s border;
+    padding-left: 15px;
+    box-sizing: border-box;
+    &:hover{;
+      outline: none;
+    }
+    &:focus{
+      border: 1px solid $darkGray;
+      outline: none;
+    }
+  }
+  &__text-input{
+    width: 70%;
+    height: 400px;
+    resize: none;
+    border-radius: 5px;
+    border: 1px solid $gray;
+    transition: 0.3s border;
+    padding: 15px;
+    box-sizing: border-box;
+    &:focus{
+      border: 1px solid $darkGray;
+      outline: none;
+    }
+  }
+  &__butt{
+    display: flex;
+    justify-content: space-between;
+    width: 70%;
+  }
 }

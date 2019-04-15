@@ -4,6 +4,7 @@ import Home from './modules/home/index.vue'
 import NewsPage from './components/news-page/index.vue'
 import adminTab from './modules/admin-tab/index.vue'
 import adminBlogs from './modules/admin-tab/components/blogs/index.vue'
+import addBlog from './modules/admin-tab/components/add-blog/index.vue'
 
 // const ifAuthenticated = (to, from, next) => {
 //     if (store.state.auth.isAuthentificated) {
@@ -38,5 +39,10 @@ export default new Router({
             path:'/news-page/:id',
             component: NewsPage
         },
+        {
+            name:'add-blog',
+            path: '/admin-tab/add-blog',
+            component: addBlog
+        }
     ]
 });
