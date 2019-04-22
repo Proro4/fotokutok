@@ -1,6 +1,5 @@
 import carousel from 'vue-owl-carousel'
 import loader from '../../components/loader/index.vue'
-import axios from 'axios';
 import {mapActions, mapGetters,mapMutations} from 'vuex';
 import {NEWS_DETAIL,RESET_NEWS_DETAIL} from "../../store/mutation-types";
 

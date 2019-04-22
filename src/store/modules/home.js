@@ -1,7 +1,8 @@
 import {
     NEWS_LIST,
     NEWS_DETAIL,
-    RESET_NEWS_DETAIL
+    RESET_NEWS_DETAIL,
+    ADD_POST,
 } from '../mutation-types.js';
 import axios from 'axios';
 
@@ -16,6 +17,25 @@ const getters = {
 };
 
 const actions = {
+    [ADD_POST]: ({commit}, playload) => {
+        return new Promise((resolve, reject) => {
+            axios
+                .post('' , playload)
+                .then(response =>{
+                    commit(ADD_POST);
+                    resolve(response);
+                    console.log('then');
+                })
+                .catch(error => {
+                    reject(error)
+                    console.log('catch');
+                })
+                .finally(() =>{
+                    console.log('finally');
+                })
+
+        })
+    },
     [NEWS_LIST]: ({commit}) => {
         return new Promise((resolve, reject) => {
             axios

@@ -165,7 +165,7 @@
   }
   &__text-input{
     width: 70%;
-    height: 400px;
+    height: 300px;
     resize: none;
     border-radius: 5px;
     border: 1px solid $gray;
@@ -176,6 +176,11 @@
       border: 1px solid $darkGray;
       outline: none;
     }
+  }
+  &__textShort{
+   .add-block__text-input{
+     height: 150px;
+   }
   }
   &__butt{
     display: flex;

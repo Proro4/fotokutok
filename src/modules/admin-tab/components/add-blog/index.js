@@ -7,6 +7,14 @@ import {NEWS_LIST} from "../../../../store/mutation-types";
 export default{
     data() {
         return{
+            newsListOst: null,
+            newPost:{
+                id: "",
+                title:''
+                imgUrl:"",
+                textShort:"",
+                text:"",
+            }
         };
     },
     components:{
@@ -15,17 +23,23 @@ export default{
     },
     computed:{
         ...mapGetters({
-            newsList:'home/newsList'
+            newsList:'home/newsList',
         })
     },
     methods:{
         ...mapActions({
-            fetchContent: `home/${NEWS_LIST}`
-        })
+            fetchContent: `home/${NEWS_LIST}`,
+        }),
+        addBlog(){
+            this.newsList.push(this.newPost)
+            console.log(this.newsList)
+        }
     },
     created(){
-        this.fetchContent();
-    }
+        this.fetchContent()
+    },
+    mounted(){
+    },
 
 
 }
