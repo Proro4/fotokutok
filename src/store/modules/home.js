@@ -9,18 +9,20 @@ import axios from 'axios';
 const state = {
     newsList: null,
     newsDetail: null,
+    sendNewBlog: null,
 };
 
 const getters = {
     newsList: state => state.newsList,
     newsDetail: state => state.newsDetail,
+    sendNewBlog: state => state.sendNewBlog,
 };
 
 const actions = {
-    [ADD_POST]: ({commit}, playload) => {
+    [ADD_POST]: ({commit}, sendNewBlog) => {
         return new Promise((resolve, reject) => {
             axios
-                .post('' , playload)
+                .post('https://fotokutok-618c4.firebaseio.com/news/news-detail' , sendNewBlog)
                 .then(response =>{
                     commit(ADD_POST);
                     resolve(response);
@@ -73,6 +75,9 @@ const mutations = {
     },
     [RESET_NEWS_DETAIL](state){
         state.newsDetail = null;
+    },
+    [ADD_POST](state ,status) {
+        state.sendNewBlog = status;
     }
 };
 

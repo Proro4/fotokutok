@@ -10,7 +10,12 @@
         {{newsList}}
         <br>
         <br>
+        {{newsListOst}}
+        <br>
+        <br>
         ====================
+        <br>
+        <br>
         {{newPost}}
         <br>
         <br>
@@ -46,7 +51,7 @@
                         </label>
                         <div class="add-block__butt">
                             <div class="butt-cansel">Отмена</div>
-                            <div class="butt" @click="addBlog()">Добавить</div>
+                            <div class="butt" @click="addBlog(), sendNewBlog(addBlog())">Добавить</div>
                         </div>
                     </div>
                 </div>

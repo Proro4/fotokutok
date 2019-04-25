@@ -1,7 +1,7 @@
 import loader from '../../../../components/loader/index.vue'
 import adminHead from '../admin-head/index.vue'
-import {mapActions, mapGetters} from 'vuex';
-import {NEWS_LIST} from "../../../../store/mutation-types";
+import {mapActions, mapGetters, mapMutations} from 'vuex';
+import {NEWS_LIST, ADD_POST} from "../../../../store/mutation-types";
 
 
 export default{
@@ -10,7 +10,7 @@ export default{
             newsListOst: null,
             newPost:{
                 id: "",
-                title:''
+                title:'',
                 imgUrl:"",
                 textShort:"",
                 text:"",
@@ -30,9 +30,13 @@ export default{
         ...mapActions({
             fetchContent: `home/${NEWS_LIST}`,
         }),
+        ...mapMutations({
+            sendNewBlog: `home/${ADD_POST}`,
+        }),
         addBlog(){
-            this.newsList.push(this.newPost)
-            console.log(this.newsList)
+            this.newsList.push(this.newPost);
+            this.newsListOst = this.newsList;
+            return this.newsListOst;
         }
     },
     created(){
