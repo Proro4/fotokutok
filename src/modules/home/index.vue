@@ -70,12 +70,14 @@
                 <div class="news">
                     <div class="news__list">
                         <router-link
-                                :to="{name:'news-page', params: {id: item.id }}"
+                                :to="{name:'news-page', params: {linkId: linkId}}"
+
                                 class="news__list-item"
                                 v-for="(item, index) in newsList"
                                 :key="index">
-
                             <div class="news__item-img">
+                                {{linkId}} <br>
+                                {{linkId = Object.keys(newsList)[item.id]}}
                                 <img v-if="item.imgUrl != null" :src="item.imgUrl" alt="">
                                 <img v-else src="https://firebasestorage.googleapis.com/v0/b/fotokutok-618c4.appspot.com/o/img-1.jpg?alt=media&token=8176420f-8c06-4351-ae1e-d1929ab53ec8" alt="">
                             </div>

@@ -36,7 +36,7 @@ export default new Router({
         },
         {
             name:'news-page',
-            path:'/news-page/:id',
+            path:'/news-page/:linkId',
             component: NewsPage
         },
         {

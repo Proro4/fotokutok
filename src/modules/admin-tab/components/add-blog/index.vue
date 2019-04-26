@@ -10,7 +10,7 @@
         {{newsList}}
         <br>
         <br>
-        {{newsListOst}}
+        {{Object.keys(newsList).length}}
         <br>
         <br>
         ====================
@@ -26,7 +26,7 @@
                         Создание нового блога
                     </div>
                     <span>
-                        блог № {{newPost.id = newsList.length - 1}}
+                        блог № {{newPost.id = Object.keys(newsList).length}}
                     </span>
                     <div class="add-block__form">
                         <label class="add-block__image">
@@ -51,7 +51,7 @@
                         </label>
                         <div class="add-block__butt">
                             <div class="butt-cansel">Отмена</div>
-                            <div class="butt" @click="addBlog(), sendNewBlog(addBlog())">Добавить</div>
+                            <div class="butt" @click="addBlog(), sendNewBlog(newPost)">Добавить</div>
                         </div>
                     </div>
                 </div>

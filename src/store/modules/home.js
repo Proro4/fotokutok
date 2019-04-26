@@ -10,6 +10,7 @@ const state = {
     newsList: null,
     newsDetail: null,
     sendNewBlog: null,
+    linkId: null
 };
 
 const getters = {
@@ -51,12 +52,13 @@ const actions = {
                 })
         })
     },
-    [NEWS_DETAIL]: ({commit}, id) => {
+    [NEWS_DETAIL]: ({commit}, linkId) => {
         return new Promise((resolve, reject) => {
-            axios.get(`https://fotokutok-618c4.firebaseio.com/news/news-detail/${id}.json`)
+            axios.get(`https://fotokutok-618c4.firebaseio.com/news/news-detail/${linkId}.json`)
                 .then((response) =>{
                     commit(NEWS_DETAIL, response.data);
                     resolve();
+                    console.log(`https://fotokutok-618c4.firebaseio.com/news/news-detail/${linkId}.json`);
                 })
                 .catch((response) =>{
                     reject(response);
