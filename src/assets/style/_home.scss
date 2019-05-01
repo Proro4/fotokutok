@@ -126,9 +126,16 @@
     justify-content: space-between;
     flex-wrap: wrap;
   }
-  &__list-item{
+  &__list-block{
     display: flex;
     width: 48%;
+    margin-bottom: 35px;
+    text-decoration: none;
+    position: relative;
+  }
+  &__list-item{
+    display: flex;
+    width: 100%;
     margin-bottom: 35px;
     text-decoration: none;
     position: relative;

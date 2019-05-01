@@ -1,0 +1,42 @@
+.pop-up{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000;
+  &__bck{
+    position: absolute;
+    left: 0;
+    top: 0;
+    height: 100%;
+    width: 100%;
+    background: rgba(0,0,0,0.5);
+  }
+  &__block{
+    position: absolute;
+    z-index: 1;
+    min-height: 100px;
+    min-width: 100px;
+    background: white;
+    padding: 15px;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  &__block-title{
+    text-align: center;
+    font-family: 'Roboto-Bold';
+    margin-bottom: 15px;
+  }
+  &__block-text{
+    font-family: 'Roboto-Regular';
+    font-family: 14px;
+    margin-bottom: 15px;
+  }
+}

@@ -3,19 +3,6 @@
         <adminHead></adminHead>
         <br>
         <br>
-        ====================
-        <br>
-        <br>
-
-        {{newsList}}
-        <br>
-        <br>
-        {{Object.keys(newsList).length}}
-        <br>
-        <br>
-        ====================
-        <br>
-        <br>
         {{newPost}}
         <br>
         <br>
