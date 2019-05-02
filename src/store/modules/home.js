@@ -4,6 +4,7 @@ import {
     RESET_NEWS_DETAIL,
     ADD_POST,
     LINK_FOR_ID,
+    POP_UP_SUC,
 
 } from '../mutation-types.js';
 import axios from 'axios';
@@ -12,7 +13,8 @@ const state = {
     newsList: null,
     newsDetail: null,
     sendNewBlog: null,
-    linkForId: null
+    linkForId: null,
+    popUpSuc: false
 };
 
 const getters = {
@@ -20,6 +22,7 @@ const getters = {
     newsDetail: state => state.newsDetail,
     sendNewBlog: state => state.sendNewBlog,
     linkForId: state => state.linkForId,
+    popUpSuc: state => state.popUpSuc,
 };
 
 const actions = {
@@ -87,6 +90,10 @@ const mutations = {
     [LINK_FOR_ID](state, status){
         state.linkForId = status;
         console.log(state.linkForId);
+    },
+    [POP_UP_SUC](state, status){
+        state.popUpSuc = status;
+        console.log(state.popUpSuc)
     }
 };
 

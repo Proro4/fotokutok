@@ -10,6 +10,7 @@
 </template>
 
 <script>
+    import { mapGetters, mapActions, mapMutations } from 'vuex'
 
     import Header from './components/header/index.vue'
     import Footer from './components/footer/index.vue'
@@ -20,6 +21,11 @@ export default {
         Header,
         Footer,
         popUpSuc
+    },
+    computed: {
+        ...mapGetters({
+            popUpSuc: `home/popUpSuc`
+        })
     }
 }
 </script>

@@ -62,7 +62,7 @@
                         </li>
                     </ul>
                     <div class="news-filter__butt">
-                        <button>ПОИСК</button>
+                        <button >ПОИСК</button>
                     </div>
                 </div>
             </div>

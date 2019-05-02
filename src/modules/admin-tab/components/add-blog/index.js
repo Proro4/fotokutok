@@ -1,7 +1,7 @@
 import loader from '../../../../components/loader/index.vue'
 import adminHead from '../admin-head/index.vue'
 import {mapActions, mapGetters, mapMutations} from 'vuex';
-import {NEWS_LIST, ADD_POST} from "../../../../store/mutation-types";
+import {NEWS_LIST, ADD_POST, POP_UP_SUC} from "../../../../store/mutation-types";
 import axios from "axios";
 
 
@@ -34,6 +34,7 @@ export default{
         }),
         ...mapMutations({
             sendNewBlog: `home/${ADD_POST}`,
+            popUpSuc: `home/${POP_UP_SUC}`
         }),
         realDate(){
             var dateObj = new Date();
