@@ -1,6 +1,6 @@
 import carousel from 'vue-owl-carousel'
-import {mapActions, mapGetters} from 'vuex';
-import {NEWS_LIST} from "../../store/mutation-types";
+import {mapActions, mapGetters, mapMutations} from 'vuex';
+import {NEWS_LIST, LINK_ID, NEWS_DETAIL} from "../../store/mutation-types";
 
 
 export default{
@@ -21,6 +21,9 @@ export default{
     methods:{
         ...mapActions({
             fetchContent: `home/${NEWS_LIST}`
+        }),
+        ...mapMutations({
+            linkId: `home/${NEWS_DETAIL}`
         })
     },
     created(){

@@ -17,6 +17,7 @@ const getters = {
     newsList: state => state.newsList,
     newsDetail: state => state.newsDetail,
     sendNewBlog: state => state.sendNewBlog,
+    linkId: state => state.linkId,
 };
 
 const actions = {
@@ -52,13 +53,14 @@ const actions = {
                 })
         })
     },
-    [NEWS_DETAIL]: ({commit}, linkId) => {
+    [NEWS_DETAIL]: ({commit}, id) => {
+        console.log(id +'1111')
         return new Promise((resolve, reject) => {
-            axios.get(`https://fotokutok-618c4.firebaseio.com/news/news-detail/${linkId}.json`)
+            axios.get(`https://fotokutok-618c4.firebaseio.com/news/news-detail/${id}.json`)
                 .then((response) =>{
                     commit(NEWS_DETAIL, response.data);
                     resolve();
-                    console.log(`https://fotokutok-618c4.firebaseio.com/news/news-detail/${linkId}.json`);
+                    console.log(`https://fotokutok-618c4.firebaseio.com/news/news-detail/${id}.json`);
                 })
                 .catch((response) =>{
                     reject(response);
@@ -80,7 +82,7 @@ const mutations = {
     },
     [ADD_POST](state ,status) {
         state.sendNewBlog = status;
-    }
+    },
 };
 
 export default {
