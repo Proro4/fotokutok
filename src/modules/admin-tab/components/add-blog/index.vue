@@ -12,6 +12,11 @@
                     <div class="add-block__title">
                         Создание нового блога
                     </div>
+                    11
+                    <br>
+                    {{firestorage}}
+                    <br>
+                    11
                     <span>
                         блог № {{newPost.id = Object.keys(newsList).length}}
                     </span>
@@ -38,7 +43,7 @@
                         </label>
                         <div class="add-block__butt">
                             <div class="butt-cansel">Отмена</div>
-                            <div class="butt" @click="addBlog(), sendNewBlog(newPost), popUpSuc(true)">Добавить</div>
+                            <div class="butt de-active" @click="addBlog(), sendNewBlog(newPost), popUpSuc(true)">Добавить</div>
                         </div>
                     </div>
                 </div>

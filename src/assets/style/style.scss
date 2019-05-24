@@ -81,6 +81,10 @@ body{
     border-bottom: 2px solid transparent;
   }
 }
+.de-active{
+  opacity: 0.3;
+  pointer-events: none;
+}
 .butt-cansel{
   color: red;
 }

@@ -1,13 +1,15 @@
 import loader from '../../../../components/loader/index.vue'
 import adminHead from '../admin-head/index.vue'
 import {mapActions, mapGetters, mapMutations} from 'vuex';
-import {NEWS_LIST, ADD_POST, POP_UP_SUC} from "../../../../store/mutation-types";
+import {NEWS_LIST, ADD_POST, POP_UP_SUC, GALLERY_LIST} from "../../../../store/mutation-types";
 import axios from "axios";
-
 
 export default{
     data() {
         return{
+            storage:null,
+            gsReference: null,
+            storageRef:null,
             newsListOst: [],
             newPost:{
                 id: "",
@@ -26,11 +28,13 @@ export default{
     computed:{
         ...mapGetters({
             newsList:'home/newsList',
+            galleryList: 'gallery/galleryList'
         })
     },
     methods:{
         ...mapActions({
             fetchContent: `home/${NEWS_LIST}`,
+            fetchGallery: `gallery/${GALLERY_LIST}`,
         }),
         ...mapMutations({
             sendNewBlog: `home/${ADD_POST}`,
@@ -59,10 +63,23 @@ export default{
                 })
 
             return this.newsListOst;
+        },
+
+        watchText(){
+            if(this.newPost.title = ''){
+                console.log('111')
+            }else{
+                console.log('2222')
+            }
         }
     },
+    watch:{
+
+    },
     created(){
-        this.fetchContent()
+        this.fetchGallery();
+        this.watchText();
+        this.fetchContent();
         this.realDate();
     },
     mounted(){
