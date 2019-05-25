@@ -3,6 +3,9 @@ import {
     NEWS_DETAIL,
     RESET_NEWS_DETAIL,
     ADD_POST,
+    LINK_FOR_ID,
+    POP_UP_SUC,
+
 } from '../mutation-types.js';
 import axios from 'axios';
 
@@ -10,14 +13,16 @@ const state = {
     newsList: null,
     newsDetail: null,
     sendNewBlog: null,
-    linkId: null
+    linkForId: null,
+    popUpSuc: false
 };
 
 const getters = {
     newsList: state => state.newsList,
     newsDetail: state => state.newsDetail,
     sendNewBlog: state => state.sendNewBlog,
-    linkId: state => state.linkId,
+    linkForId: state => state.linkForId,
+    popUpSuc: state => state.popUpSuc,
 };
 
 const actions = {
@@ -53,14 +58,14 @@ const actions = {
                 })
         })
     },
-    [NEWS_DETAIL]: ({commit}, id) => {
-        console.log(id +'1111')
+    [NEWS_DETAIL]: ({commit}, linkForId) => {
         return new Promise((resolve, reject) => {
-            axios.get(`https://fotokutok-618c4.firebaseio.com/news/news-detail/${id}.json`)
+            axios.get(`https://fotokutok-618c4.firebaseio.com/news/news-detail/${linkForId}.json`)
                 .then((response) =>{
                     commit(NEWS_DETAIL, response.data);
                     resolve();
-                    console.log(`https://fotokutok-618c4.firebaseio.com/news/news-detail/${id}.json`);
+                    console.log(`https://fotokutok-618c4.firebaseio.com/news/news-detail/${linkForId}.json`);
+
                 })
                 .catch((response) =>{
                     reject(response);
@@ -80,9 +85,17 @@ const mutations = {
     [RESET_NEWS_DETAIL](state){
         state.newsDetail = null;
     },
-    [ADD_POST](state ,status) {
+    [ADD_POST](state, status){
         state.sendNewBlog = status;
     },
+    [LINK_FOR_ID](state, status){
+        state.linkForId = status;
+        console.log(state.linkForId);
+    },
+    [POP_UP_SUC](state, status){
+        state.popUpSuc = status;
+        console.log(state.popUpSuc)
+    }
 };
 
 export default {

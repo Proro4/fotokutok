@@ -10,6 +10,7 @@ a,p{
 @import "sliders";
 @import "news";
 @import "admin";
+@import "popUp";
 body{
   margin: 0;
   overflow-x: hidden;
@@ -72,7 +73,7 @@ body{
   color: white;
   cursor: pointer;
   border-bottom: 2px solid black;
-  border-top: 0px solid white;
+  border-top: 1px solid transparent;
   user-select: none;
   &:active{
     box-shadow: 0 -3px 5px 1px rgba(0,0,0,0.1);

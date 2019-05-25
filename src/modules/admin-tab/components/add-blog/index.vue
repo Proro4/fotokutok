@@ -3,19 +3,6 @@
         <adminHead></adminHead>
         <br>
         <br>
-        ====================
-        <br>
-        <br>
-
-        {{newsList}}
-        <br>
-        <br>
-        {{Object.keys(newsList).length}}
-        <br>
-        <br>
-        ====================
-        <br>
-        <br>
         {{newPost}}
         <br>
         <br>
@@ -51,7 +38,7 @@
                         </label>
                         <div class="add-block__butt">
                             <div class="butt-cansel">Отмена</div>
-                            <div class="butt" @click="addBlog(), sendNewBlog(newPost)">Добавить</div>
+                            <div class="butt" @click="addBlog(), sendNewBlog(newPost), popUpSuc(true)">Добавить</div>
                         </div>
                     </div>
                 </div>
