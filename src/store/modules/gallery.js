@@ -16,7 +16,7 @@ const actions = {
     [GALLERY_LIST]: ({commit}) => {
         return new Promise((resolve, reject) => {
             axios
-                .get('gs://fotokutok-618c4.appspot.com/img')
+                .get('')
                 .then((response) => {
                     commit(GALLERY_LIST, response.data);
                     resolve();

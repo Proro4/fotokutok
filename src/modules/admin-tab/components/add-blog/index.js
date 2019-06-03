@@ -3,6 +3,7 @@ import adminHead from '../admin-head/index.vue'
 import {mapActions, mapGetters, mapMutations} from 'vuex';
 import {NEWS_LIST, ADD_POST, POP_UP_SUC, GALLERY_LIST} from "../../../../store/mutation-types";
 import axios from "axios";
+import {db} from "../../../../main";
 
 export default{
     data() {
@@ -15,7 +16,7 @@ export default{
                 id: "",
                 title:'',
                 date:'',
-                imgUrl:"https://firebasestorage.googleapis.com/v0/b/fotokutok-618c4.appspot.com/o/img-1.jpg?alt=media&token=c7668afc-3c3e-4aa7-b157-24151f3b41c7",
+                imgUrl:"https://firestorageirebasestorage.googleapis.com/v0/b/fotokutok-618c4.appspot.com/o/img-1.jpg?alt=media&token=c7668afc-3c3e-4aa7-b157-24151f3b41c7",
                 textShort:"",
                 text:"",
             }
@@ -69,8 +70,32 @@ export default{
             }else{
                 console.log('2222')
             }
+        },
+        previewFile(){
+
+            var storage = firebase.storage();
+
+            var file = document.getElementById("files").files[0];
+            console.log(file);
+
+            var storageRef = firebase.storage().ref();
+
+            //dynamically set reference to the file name
+            var thisRef = storageRef.child(file.name);
+
+            //put request upload file to firebase storage
+            thisRef.put(file).then(function(snapshot) {
+                console.log('Uploaded a blob or file!');
+            });
+
+            //get request to get URL for uploaded file
+            thisRef.getDownloadURL().then(function(url) {
+                console.log(url);
+            })
         }
-    },
+        }
+
+    ,
     watch:{
 
     },
@@ -82,6 +107,11 @@ export default{
     },
     mounted(){
     },
+    firestore () {
+        return {
+            locations: db.collection('news')
+        }
+    }
 
 
 }

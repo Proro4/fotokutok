@@ -7,6 +7,7 @@ import { db } from '../../main';
 export default{
     data() {
         return{
+            newStorage: [],
             locations: null
         };
     },
@@ -35,8 +36,10 @@ export default{
     },
     firestore () {
         return {
-            locations: db.collection('news')
-        }
+            locations: db.collection('news'),
+            newStorage: storage.refFromURL("gs://bucket/images/stars.jpg")
+
+    }
     }
 
 }

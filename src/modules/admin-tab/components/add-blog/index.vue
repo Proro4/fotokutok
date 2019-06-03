@@ -12,9 +12,9 @@
                     <div class="add-block__title">
                         Создание нового блога
                     </div>
-                    11
+                    111
                     <br>
-                    {{firestorage}}
+                    {{newStorage}}
                     <br>
                     11
                     <span>
