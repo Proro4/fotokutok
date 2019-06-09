@@ -5,8 +5,11 @@ import {
     ADD_POST,
     LINK_FOR_ID,
     POP_UP_SUC,
+    ALL_IMG,
 
 } from '../mutation-types.js';
+import { storage } from '@/main';
+
 import axios from 'axios';
 
 const state = {
@@ -14,7 +17,9 @@ const state = {
     newsDetail: null,
     sendNewBlog: null,
     linkForId: null,
-    popUpSuc: false
+    popUpSuc: false,
+    allImg: null,
+    storage: null
 };
 
 const getters = {
@@ -23,6 +28,8 @@ const getters = {
     sendNewBlog: state => state.sendNewBlog,
     linkForId: state => state.linkForId,
     popUpSuc: state => state.popUpSuc,
+    allImg: state => state.allImg,
+    storage: state => state.storage,
 };
 
 const actions = {
@@ -58,6 +65,19 @@ const actions = {
                 })
         })
     },
+    [ALL_IMG]: ({commit}) => {
+        return new Promise((resolve, reject) => {
+            axios
+                .get('https://fotokutok-618c4.firebaseio.com/imgLinks.json')
+                .then((response) => {
+                    commit(ALL_IMG, response.data);
+                    resolve();
+                })
+                .catch((response) => {
+                    reject(response);
+                })
+        })
+    },
     [NEWS_DETAIL]: ({commit}, linkForId) => {
         return new Promise((resolve, reject) => {
             axios.get(`https://fotokutok-618c4.firebaseio.com/news/news-detail/${linkForId}.json`)
@@ -70,7 +90,6 @@ const actions = {
                 .catch((response) =>{
                     reject(response);
                 })
-
         })
     }
 };
@@ -78,6 +97,10 @@ const actions = {
 const mutations = {
     [NEWS_LIST](state, status) {
         state.newsList = status;
+        let storageRef = storage.ref();
+    },
+    [ALL_IMG](state, status){
+        state.allImg = status;
     },
     [NEWS_DETAIL](state, newsDetail){
         state.newsDetail = newsDetail;
@@ -90,11 +113,9 @@ const mutations = {
     },
     [LINK_FOR_ID](state, status){
         state.linkForId = status;
-        console.log(state.linkForId);
     },
     [POP_UP_SUC](state, status){
         state.popUpSuc = status;
-        console.log(state.popUpSuc)
     }
 };
 

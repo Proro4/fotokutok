@@ -9,7 +9,7 @@
                 Операция выполнена успешно!
             </div>
             <div class="pop-up__block-butt">
-                <div class="butt" @click="popUpSuc(false)">
+                <div class="butt" @click="popUpSuc(false), router.go(1)">
                     ОК
                 </div>
             </div>

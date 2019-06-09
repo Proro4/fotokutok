@@ -8,6 +8,7 @@ import carousel from 'vue-owl-carousel';
 import { firestorePlugin } from 'vuefire';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import 'firebase/storage';
 import Vuetify from 'vuetify';
 import 'vuetify/dist/vuetify.min.css'
 
@@ -28,6 +29,12 @@ firebase.initializeApp({
 })
 
 export const db = firebase.firestore();
+export const storage = firebase.storage();
+// const storageRef = storage.ref();
+// const storageRefLink = storageRef.child('img-1.jpg')
+// storageRef.child('img-1.jpg').getDownloadURL().then(function(url) {
+//     console.log(url)
+// })
 Vue.component('carousel', carousel);
 
 new Vue({

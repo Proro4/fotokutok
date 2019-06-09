@@ -3,7 +3,7 @@
         <adminHead></adminHead>
         <br>
         <br>
-        {{newPost}}
+        <div v-if="newPost">{{newPost}}</div>
         <br>
         <br>
         <div class="add-block">
@@ -14,10 +14,9 @@
                     </div>
                     111
                     <br>
-                    {{newStorage}}
                     <br>
                     11
-                    <span>
+                    <span v-if="newsList">
                         блог № {{newPost.id = Object.keys(newsList).length}}
                     </span>
                     <div class="add-block__form">
@@ -28,6 +27,9 @@
                                 <option value="2">img2</option>
                                 <option value="3">img3</option>
                             </select>
+                        </label>
+                        <label>
+                            <input type="file" @change="processFile($event)">
                         </label>
                         <label class="add-block__name">
                             <span class="add-block__name-span">Название блога</span>
@@ -43,7 +45,7 @@
                         </label>
                         <div class="add-block__butt">
                             <div class="butt-cansel">Отмена</div>
-                            <div class="butt de-active" @click="addBlog(), sendNewBlog(newPost), popUpSuc(true)">Добавить</div>
+                            <div class="butt" @click="addBlog(), sendNewBlog(newPost), popUpSuc(true)">Добавить</div>
                         </div>
                     </div>
                 </div>

@@ -5,5 +5,6 @@ export const ADD_POST = 'ADD_POST';
 export const LINK_ID = 'LINK_ID';
 export const LINK_FOR_ID = 'LINK_FOR_ID';
 export const POP_UP_SUC = 'POP_UP_SUC';
+export const ALL_IMG = 'ALL_IMG';
 //GALERY
 export const GALLERY_LIST = 'GALLERY_LIST';

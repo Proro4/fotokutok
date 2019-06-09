@@ -36,10 +36,8 @@ export default{
     },
     firestore () {
         return {
-            locations: db.collection('news'),
-            newStorage: storage.refFromURL("gs://bucket/images/stars.jpg")
-
-    }
+            locations: db.collection('news')
+        }
     }
 
 }
