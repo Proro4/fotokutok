@@ -10,10 +10,25 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 import 'firebase/storage';
 import Vuetify from 'vuetify';
-import 'vuetify/dist/vuetify.min.css'
+import 'vuetify/dist/vuetify.min.css';
+import '@mdi/font/css/materialdesignicons.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+import { fas } from '@fortawesome/free-solid-svg-icons'
+
+
+Vue.component('font-awesome-icon', FontAwesomeIcon) // Register component globally
+library.add(fas) // Include needed icons.
+
+
 
 Vue.use(firestorePlugin);
-Vue.use(Vuetify);
+Vue.use(Vuetify,{
+    iconfont: 'mdi',
+    iconfont: 'faSvg',
+    iconfont: 'fa'
+});
 Vue.config.productionTip = false;
 
 Vue.use(Vuex);

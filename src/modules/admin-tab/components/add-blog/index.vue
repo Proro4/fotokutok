@@ -1,35 +1,18 @@
 <template>
     <div>
         <adminHead></adminHead>
-        <br>
-        <br>
-        <div v-if="newPost">{{newPost}}</div>
-        <br>
-        <br>
         <div class="add-block">
             <div class="container">
                 <div class="row-m">
                     <div class="add-block__title">
                         Создание нового блога
                     </div>
-                    111
-                    <br>
-                    <br>
-                    11
                     <span v-if="newsList">
                         блог № {{newPost.id = Object.keys(newsList).length}}
                     </span>
                     <div class="add-block__form">
-                        <label class="add-block__image">
-                            <span class="add-block__image-span">Выбрать картинку из доступных</span>
-                            <select class="add-block__image-input">
-                                <option value="1">img1</option>
-                                <option value="2">img2</option>
-                                <option value="3">img3</option>
-                            </select>
-                        </label>
-                        <label>
-                            <input type="file" @change="processFile($event)">
+                        <label class="add-block__add-img">
+                            <input class="add-block__img-input" type="file" @change="processFile($event)">
                         </label>
                         <label class="add-block__name">
                             <span class="add-block__name-span">Название блога</span>
@@ -44,7 +27,7 @@
                             <textarea v-model="newPost.text" class="add-block__text-input"></textarea>
                         </label>
                         <div class="add-block__butt">
-                            <div class="butt-cansel">Отмена</div>
+                            <router-link :to="{name:'admin-blogs'}" class="butt-cansel" @click="">Отмена</router-link>
                             <div class="butt" @click="addBlog(), sendNewBlog(newPost), popUpSuc(true)">Добавить</div>
                         </div>
                     </div>

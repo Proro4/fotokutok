@@ -9,6 +9,7 @@ let imgUrl = '';
 export default{
     data() {
         return{
+            loading:false,
             fileName:'',
             gsReference: null,
             storageRef:null,
@@ -18,7 +19,7 @@ export default{
                 title:'',
                 date:'',
                 file:'',
-                imgUrl:"https://firestorageirebasestorage.googleapis.com/v0/b/fotokutok-618c4.appspot.com/o/img-1.jpg?alt=media&token=c7668afc-3c3e-4aa7-b157-24151f3b41c7",
+                imgUrl:"https://firebasestorage.googleapis.com/v0/b/fotokutok-618c4.appspot.com/o/no-photo.jpg?alt=media&token=a904dc5f-3095-42ac-b93b-60c5cb6fb339",
                 textShort:"",
                 text:"",
             }
