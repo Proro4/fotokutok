@@ -7,6 +7,7 @@ import { db } from '../../main';
 export default{
     data() {
         return{
+            newStorage: [],
             locations: null
         };
     },
