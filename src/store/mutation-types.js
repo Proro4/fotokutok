@@ -11,3 +11,5 @@ export const ALL_IMG = 'ALL_IMG';
 //GALERY
 export const GALLERY_LIST = 'GALLERY_LIST';
 
+//AUTH
+export const AUTH_TOKEN = 'AUTH_TOKEN';

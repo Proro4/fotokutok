@@ -80,6 +80,7 @@ export default{
                             })
                             .finally(() =>{
                                 console.log('finally');
+                                this.$router.push({name:"admin-tab"})
                             })
                     })
 
