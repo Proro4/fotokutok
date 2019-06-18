@@ -1,3 +1,8 @@
+@media screen and (max-width: 1265px){
+  .row-m{
+    width: 900px;
+  }
+}
 @media screen and (max-width: 1120px) {
   .row-m{
     width: 720px;
@@ -34,6 +39,9 @@
   }
   .news-page__content-img{
     min-height: auto;
+  }
+  .news__list-block{
+    width: 100%;
   }
 }
 @media screen and (max-width: 550px){

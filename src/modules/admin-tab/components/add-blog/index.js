@@ -5,6 +5,7 @@ import {NEWS_LIST, ADD_POST, POP_UP_SUC} from "../../../../store/mutation-types"
 import axios from "axios";
 import {db} from "../../../../main";
 import { storage } from '@/main';
+import {auth} from "@/main";
 let imgUrl = '';
 export default{
     data() {
@@ -101,6 +102,15 @@ export default{
             this.fileName = event.target.files[0].name;
             this.newPost.file = event.target.files[0];
         },
+        CurrentUser(){
+            auth.onAuthStateChanged((user)=> {
+                if (user) {
+                } else {
+                    // No user is signed in.
+                    this.$router.push({name:"auth"})
+                }
+            });
+        }
     },
     watch:{
 
@@ -110,6 +120,7 @@ export default{
         this.watchText();
         this.fetchContent();
         this.realDate();
+        this.CurrentUser();
     },
     mounted(){
     },

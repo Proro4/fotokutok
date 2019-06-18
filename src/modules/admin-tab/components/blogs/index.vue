@@ -24,7 +24,7 @@
                                 <a class="admin-blogs__del" href="#">Удалить</a>
                             </div>
                         </div>
-                        <router-link :to="{name:'add-blog'}" class="admin-blogs__add-blog"><span>+</span> Добавить блог</router-link>
+                        <router-link :to="{name:'add-blog'}" class="admin-blogs__add-blog"><font-awesome-icon icon="plus-circle" /> Добавить блог</router-link>
                     </div>
                 </div>
             </div>

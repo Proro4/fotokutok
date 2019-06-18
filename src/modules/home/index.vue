@@ -69,6 +69,11 @@
                                 </div>
                             </router-link>
                         </div>
+                        <div class="news__list-more">
+                            <v-btn flat small>
+                                загрузить еще
+                            </v-btn>
+                        </div>
                     </div>
                 </div>
             </div>

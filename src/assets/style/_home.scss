@@ -132,22 +132,39 @@
     margin-bottom: 35px;
     text-decoration: none;
     position: relative;
+    border-radius: 5px;
+    transition: 0.5s all;
+    box-shadow: 0px 0px 0px 0px rgba(0,0,0,0.0);
+    transform: scale(1);
+    &:hover{
+      transform: scale(1.005);
+      box-shadow: 0px 2px 4px 1px rgba(0,0,0,0.3);
+    }
+  }
+  &__list-more{
+    display: flex;
+    width: 100%;
+    justify-content: center;
+    padding-bottom: 30px;
+    font-family: 'Roboto-Regular';
+    span{
+
+    }
   }
   &__list-item{
     display: flex;
     width: 100%;
-    margin-bottom: 35px;
     text-decoration: none;
     position: relative;
     &:after{
-      content: '';
-      position: absolute;
-      height: 0px;
-      width: 100%;
-      background: $gray;
-      left: 0;
-      transition: 0.3s height;
-      border-radius: 10px;
+      //content: '';
+      //position: absolute;
+      //height: 0px;
+      //width: 100%;
+      //background: $gray;
+      //left: 0;
+      //transition: 0.3s height;
+      //border-radius: 10px;
     }
     &:after{
       bottom: -1px;
@@ -199,15 +216,15 @@
   }
   &__item-more{
     position: absolute;
-    right: 0;
-    bottom: 3px;
+    right: 3px;
+    bottom: 5px;
     font-size: 10px;
     font-family: 'Roboto-Regular';
     color: black;
     opacity: 0;
-    transform: translate3d(20px, 0, 0);
+    transform: translate3d(-20px, 0, 0);
     pointer-events: none;
-    transition: 0.3s transform, 0.3s opacity;
+    transition: 0.2s transform, 0.3s opacity;
     svg{
       margin-left: 10px;
     }

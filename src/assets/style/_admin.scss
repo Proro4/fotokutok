@@ -2,13 +2,15 @@
 
 }
 .admin-head{
-  height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  width: 100%;
-  background: $gray;
-  margin-bottom: 40px;
+  &__inner{
+    background: $gray;
+    margin-bottom: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding-left: 25px;
+  }
   &__list{
     display: flex;
     justify-content: flex-start;
@@ -36,6 +38,7 @@
   &__list{
     display: flex;
     flex-direction: column;
+    padding-bottom: 25px;
   }
   &__item{
     display: flex;
