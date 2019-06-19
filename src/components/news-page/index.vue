@@ -16,7 +16,7 @@
                         {{newsDetail.text}}
                     </div>
                 </div>
-                <a class="news-page__back" @click="$router.go(-1)">Вернуться назад</a>
+                <v-btn small flat class="news-page__back" :to="{name:'home'}"><font-awesome-icon class="angle-left" icon="angle-left" /> Вернуться назад</v-btn>
 
             </div>
             <div class="row-m" v-else>

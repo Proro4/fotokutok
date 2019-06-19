@@ -2,30 +2,22 @@
     <div class="container">
         <div class="row-m">
             <div class="home-top">
-                <div class="home-slider">
+                <div class="home-slider"
+                     v-if="sliderList != null">
                     <carousel
                             :items="1"
                             :loop="true"
                             :nav="false">
-                        <div class="home-slider__item">
-                            <img src="../../assets/img/img-1.jpg">
+                        <div class="home-slider__item"
+                            v-for="(item, indexSlider) in sliderList"
+                            :key="indexSlider">
+                            <img :src="item.imgUrl">
                             <div class="home-slider__item-content">
                                 <div class="home-slider__item-title">
-                                    Последня новость #1
+                                    {{item.title}}
                                 </div>
                                 <div class="home-slider__item-text">
-                                    Краткое описание последне новости под номером 1
-                                </div>
-                            </div>
-                        </div>
-                        <div class="home-slider__item">
-                            <img src="../../assets/img/img-2.jpg">
-                            <div class="home-slider__item-content">
-                                <div class="home-slider__item-title">
-                                    Последня новость #2
-                                </div>
-                                <div class="home-slider__item-text">
-                                    Краткое описание последне новости под номером 2
+                                    {{item.textShort}}
                                 </div>
                             </div>
                         </div>
@@ -37,16 +29,16 @@
                     <div class="news__list">
                         <div class="news__list-block"
                             v-for="(item, index) in newsList"
-
+                            v-if="newsList != null"
                             @click="linkForId(Object.keys(newsList)[item.id])"
                             :key="index">
 
                             <router-link
 
-                                    :to="{name:'news-page', params: {id: Object.keys(newsList)[item.id]}}"
+                                    :to="{name:'news-page', params: {id: item.id}}"
                                     class="news__list-item">
-                                <div class="news__item-img">
-                                    <img v-if="item.imgUrl != null" :src="item.imgUrl" alt="">
+                                <div class="news__item-img" v-lazyLoad>
+                                    <img v-if="item.imgUrl != null" :src="item.imgUrl" alt="" >
                                     <img v-else src="https://firebasestorage.googleapis.com/v0/b/fotokutok-618c4.appspot.com/o/img-1.jpg?alt=media&token=8176420f-8c06-4351-ae1e-d1929ab53ec8" alt="">
                                 </div>
                                 <div class="news__item-content">
@@ -69,8 +61,11 @@
                                 </div>
                             </router-link>
                         </div>
-                        <div class="news__list-more">
-                            <v-btn flat small>
+                        <div v-else>
+                            <loader></loader>
+                        </div>
+                        <div class="news__list-more" v-if="newsListLimit[1] < newsListMax">
+                            <v-btn flat small @click="changeLimit()">
                                 загрузить еще
                             </v-btn>
                         </div>

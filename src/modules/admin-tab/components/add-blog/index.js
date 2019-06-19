@@ -32,7 +32,7 @@ export default{
     },
     computed:{
         ...mapGetters({
-            newsList:'home/newsList',
+            newsList:'home/allList',
             storage:`home/storage`,
             // galleryList: 'gallery/galleryList'
         })

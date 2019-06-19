@@ -1,6 +1,8 @@
 import {
     NEWS_LIST,
+    NEWS_LIST_LIMIT,
     NEWS_DETAIL,
+    NEWS_PAGE_LIST,
     RESET_NEWS_DETAIL,
     ADD_POST,
     LINK_FOR_ID,
@@ -13,23 +15,31 @@ import { storage } from '@/main';
 import axios from 'axios';
 
 const state = {
-    newsList: null,
+    newsList: [],
+    newsListLimit: [0,4],
+    newsListMax: null,
     newsDetail: null,
     sendNewBlog: null,
     linkForId: null,
     popUpSuc: false,
     allImg: null,
     storage: null,
+    allList: null,
+    sliderList: null,
 };
 
 const getters = {
     newsList: state => state.newsList,
+    newsListLimit: state => state.newsListLimit,
+    newsListMax: state => state.newsListMax,
     newsDetail: state => state.newsDetail,
     sendNewBlog: state => state.sendNewBlog,
     linkForId: state => state.linkForId,
     popUpSuc: state => state.popUpSuc,
     allImg: state => state.allImg,
     storage: state => state.storage,
+    allList: state => state.allList,
+    sliderList: state => state.sliderList,
 };
 
 const actions = {
@@ -80,11 +90,13 @@ const actions = {
     },
     [NEWS_DETAIL]: ({commit}, linkForId) => {
         return new Promise((resolve, reject) => {
-            axios.get(`https://fotokutok-618c4.firebaseio.com/news/news-detail/${linkForId}.json`)
+            console.log(linkForId);
+            axios
+             .get('https://fotokutok-618c4.firebaseio.com/news/news-detail.json')
                 .then((response) =>{
-                    commit(NEWS_DETAIL, response.data);
+                    commit(NEWS_PAGE_LIST, response.data);
+                    commit(NEWS_DETAIL,  linkForId);
                     resolve();
-                    console.log(`https://fotokutok-618c4.firebaseio.com/news/news-detail/${linkForId}.json`);
 
                 })
                 .catch((response) =>{
@@ -95,17 +107,38 @@ const actions = {
 };
 
 const mutations = {
+    [NEWS_LIST_LIMIT](state, status) {
+        state.newsListLimit = status;
+    },
     [NEWS_LIST](state, status) {
-        state.newsList = status;
-        let storageRef = storage.ref();
+        state.allList = status;
+        state.newsList = [];
+        let start = state.newsListLimit[0];
+        let limit = state.newsListLimit[1];
+        let key;
+        for(key in status){
+            state.newsList.push(status[key])
+        }
+        state.newsList = state.newsList.reverse();
+        state.newsListMax = state.newsList.length;
+        state.newsList = state.newsList.slice(start, limit);
+        state.sliderList = state.newsList.slice(0, 2);
     },
     [ALL_IMG](state, status){
         state.allImg = status;
     },
+    [NEWS_PAGE_LIST](state, status){
+        state.newsList = [];
+        let key;
+        for(key in status){
+            state.newsList.push(status[key])
+        }
+    },
     [NEWS_DETAIL](state, newsDetail){
-        state.newsDetail = newsDetail;
+        state.newsDetail = state.newsList[newsDetail];
     },
     [RESET_NEWS_DETAIL](state){
+        state.newsList = state.newsList.reverse();
         state.newsDetail = null;
     },
     [ADD_POST](state, status){

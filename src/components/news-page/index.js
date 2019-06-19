@@ -31,7 +31,7 @@ export default{
         })
     },
     created(){
-        this.fetchContent(this.linkForId);
+        this.fetchContent(this.currentId);
     },
     destroyed(){
         this.reset();

@@ -38,8 +38,11 @@
   &__back{
     font-size: 12px;
     display: block;
-    margin: 25px;
+    margin: 25px !important;
     cursor: pointer;
     font-family: 'Roboto-Regular';
+    .angle-left{
+      margin-right: 10px;
+    }
   }
 }

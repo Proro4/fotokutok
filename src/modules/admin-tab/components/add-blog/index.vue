@@ -3,8 +3,7 @@
         <adminHead></adminHead>
         <div class="add-block">
             <div class="container">
-                <div class="row-m">
-                    {{newPost}}
+                <div class="row-m"> 
                     <div class="add-block__title">
                         Создание нового блога
                     </div>

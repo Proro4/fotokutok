@@ -185,11 +185,21 @@
     min-width: 215px;
     min-height: 215px;
     margin-right:35px;
+    background: $gray;
+    transition: 0.3s background;
+    &.loaded{
+      background: transparent;
+      img{
+        opacity: 1;
+      }
+    }
     img{
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 5px;
+      opacity: 0;
+      transition: 0.3s opacity;
     }
   }
   &__item-content{

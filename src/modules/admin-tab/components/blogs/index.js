@@ -16,7 +16,7 @@ export default{
     },
     computed:{
         ...mapGetters({
-            newsList:'home/newsList'
+            newsList:'home/allList'
         })
     },
     methods:{

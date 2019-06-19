@@ -9,9 +9,7 @@
                 </div>
                 <ul class="header__menu">
                     <li class="header__menu-item">
-                        <router-link :to="{name: 'home'}" class="header__menu-link">Главная</router-link>
-                        <router-link to='blog' class="header__menu-link">Блог</router-link>
-                        <router-link to='news' class="header__menu-link">Новости</router-link>
+                        <router-link :to="{name: 'home'}" class="header__menu-link">Блог</router-link>
                         <router-link to='obut' class="header__menu-link">Обо мне</router-link>
                     </li>
                 </ul>
