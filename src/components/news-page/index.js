@@ -35,6 +35,16 @@ export default{
     },
     destroyed(){
         this.reset();
+    },
+    directives: {
+        lazyLoad: {
+            inserted: function (el) {
+                let imgBlock = el.children[0];
+                imgBlock.addEventListener("load", () => {
+                    el.classList.add("loaded")
+                });
+            }
+        }
     }
 
 }

@@ -180,6 +180,9 @@
       outline: none;
     }
   }
+  &__text{
+    position: relative;
+  }
   &__textShort{
    .add-block__text-input{
      height: 150px;
@@ -189,5 +192,33 @@
     display: flex;
     justify-content: space-between;
     width: 70%;
+    margin-bottom: 25px;
+  }
+}
+.tag-list{
+  display: flex;
+  margin: 0 0 5px 0;
+  padding: 0;
+  li{
+    padding: 0;
+    margin: 0;
+    display: flex;
+    height: 30px;
+    width: 30px;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: 0.3s background-color;
+    user-select: none;
+    b{
+      font-family: 'Roboto-Bold';
+    }
+    &:hover{
+      background: #ede2e2;
+    }
+    &:active{
+      background: #bcbcbc;
+    }
   }
 }

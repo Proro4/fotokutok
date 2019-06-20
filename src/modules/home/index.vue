@@ -10,7 +10,8 @@
                             :nav="false">
                         <div class="home-slider__item"
                             v-for="(item, indexSlider) in sliderList"
-                            :key="indexSlider">
+                            :key="indexSlider"
+                             v-lazyLoad>
                             <img :src="item.imgUrl">
                             <div class="home-slider__item-content">
                                 <div class="home-slider__item-title">
@@ -28,13 +29,11 @@
                 <div class="news">
                     <div class="news__list">
                         <div class="news__list-block"
-                            v-for="(item, index) in newsList"
                             v-if="newsList != null"
+                            v-for="(item, index) in newsList"
                             @click="linkForId(Object.keys(newsList)[item.id])"
                             :key="index">
-
                             <router-link
-
                                     :to="{name:'news-page', params: {id: item.id}}"
                                     class="news__list-item">
                                 <div class="news__item-img" v-lazyLoad>

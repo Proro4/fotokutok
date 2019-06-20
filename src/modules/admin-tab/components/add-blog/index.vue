@@ -24,6 +24,23 @@
                         </label>
                         <label class="add-block__text">
                             <span class="add-block__text-span">Текст</span>
+                            <ul class="tag-list">
+                                <li class="tag-list__item">
+                                    <font-awesome-icon class="paragraph" icon="paragraph" @click="addParagraph()"/>
+                                </li>
+                                <li @click="addBold()" class="teg-list__item">
+                                      <b>Ж</b>
+                                </li>
+                                <li class="tag-list__item">
+                                    <font-awesome-icon class="list-ul" icon="list-ul" @click="addList()"/>
+                                </li>
+                                <li class="tag-list__item" @click="addUnderline()">
+                                    <font-awesome-icon class="underline" icon="underline"/>
+                                </li>
+                                <li class="tag-list__item" @click="addStrike()">
+                                    <font-awesome-icon class="strikethrough" icon="strikethrough"/>
+                                </li>
+                            </ul>
                             <textarea v-model="newPost.text" class="add-block__text-input"></textarea>
                         </label>
                         <div class="add-block__butt">

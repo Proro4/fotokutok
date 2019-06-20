@@ -62,6 +62,15 @@ export default{
             this.newPost.date = day + " " + month + " " + year;
         },
         addBlog(){
+            if(this.newPost.title == ''){
+                alert('Заполните название');
+            }else if(this.newPost.textShort == ''){
+                alert('Заполните краткое описание');
+            }else if(this.newPost.text == ''){
+                alert('Заполните описание');
+            }else if(this.newPost.file == ''){
+                alert('добавте фото');
+            }
             storage.ref().child(this.fileName).put(this.newPost.file).then((snapshot) => {
                 console.log('Uploaded a blob or file!');
 
@@ -110,6 +119,21 @@ export default{
                     this.$router.push({name:"auth"})
                 }
             });
+        },
+        addParagraph(){
+            this.newPost.text = this.newPost.text + '<br>'
+        },
+        addBold(){
+            this.newPost.text = this.newPost.text + '<b></b>'
+        },
+        addList(){
+            this.newPost.text = this.newPost.text + '\n<ul>\n \t<li></li>\n</ul>'
+        },
+        addUnderline(){
+            this.newPost.text = this.newPost.text + '<u></u>'
+        },
+        addStrike(){
+            this.newPost.text = this.newPost.text + '<strike></strike>'
         }
     },
     watch:{
