@@ -2,6 +2,7 @@ import {
     NEWS_LIST,
     NEWS_LIST_LIMIT,
     NEWS_DETAIL,
+    NEWS_DETAIL_EDIT,
     NEWS_PAGE_LIST,
     RESET_NEWS_DETAIL,
     ADD_POST,
@@ -16,6 +17,7 @@ import axios from 'axios';
 
 const state = {
     newsList: [],
+    newsDetailList: [],
     newsListLimit: [0,4],
     newsListMax: null,
     newsDetail: null,
@@ -31,6 +33,7 @@ const state = {
 const getters = {
     newsList: state => state.newsList,
     newsListLimit: state => state.newsListLimit,
+    newsDetailList: state => state.newsDetailList,
     newsListMax: state => state.newsListMax,
     newsDetail: state => state.newsDetail,
     sendNewBlog: state => state.sendNewBlog,
@@ -103,6 +106,20 @@ const actions = {
                     reject(response);
                 })
         })
+    },
+    [NEWS_DETAIL_EDIT]: ({commit}, linkForId) => {
+        return new Promise((resolve, reject) => {
+            axios
+             .get('https://fotokutok-618c4.firebaseio.com/news/news-detail/'+linkForId+'.json')
+                .then((response) =>{ 
+                    commit(NEWS_DETAIL_EDIT, response.data);
+                    resolve();
+
+                })
+                .catch((response) =>{
+                    reject(response);
+                })
+        })
     }
 };
 
@@ -149,7 +166,10 @@ const mutations = {
     },
     [POP_UP_SUC](state, status){
         state.popUpSuc = status;
-    }
+    },
+    [NEWS_DETAIL_EDIT](state, status) {
+        state.newsDetailList = status;
+    },
 };
 
 export default {

@@ -5,6 +5,7 @@ import NewsPage from './components/news-page/index.vue'
 import adminTab from './modules/admin-tab/index.vue'
 import adminBlogs from './modules/admin-tab/components/blogs/index.vue'
 import addBlog from './modules/admin-tab/components/add-blog/index.vue'
+import editBlog from './modules/admin-tab/components/edit-blog/index.vue'
 import Auth from './modules/auth/index.vue'
 
 // const ifAuthenticated = (to, from, next) => {
@@ -44,6 +45,11 @@ export default new Router({
             name:'add-blog',
             path: '/admin-tab/add-blog',
             component: addBlog
+        },
+        {
+            name:'edit-blog',
+            path: '/admin-tab/edit-blog/:id',
+            component: editBlog
         },
         {
             name:'auth',

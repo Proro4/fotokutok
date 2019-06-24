@@ -20,7 +20,7 @@
                                 </div>
                             </div>
                             <div class="admin-blogs__item-edit">
-                                <a class="admin-blogs__change" href="#">Редактировать</a>
+                                <router-link class="admin-blogs__change" :to="{name:'edit-blog', params: {id: Object.keys(newsList)[item.id]}}">Редактировать</router-link>
                                 <a class="admin-blogs__del" href="#">Удалить</a>
                             </div>
                         </div>

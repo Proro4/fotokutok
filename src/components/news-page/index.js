@@ -32,6 +32,7 @@ export default{
     },
     created(){
         this.fetchContent(this.currentId);
+        console.log(this.$router.currentRoute)
     },
     destroyed(){
         this.reset();
