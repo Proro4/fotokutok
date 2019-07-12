@@ -1,7 +1,6 @@
-import carousel from 'vue-owl-carousel'
 import loader from '../../components/loader/index.vue'
-import {mapActions, mapGetters,mapMutations} from 'vuex';
-import {NEWS_DETAIL,RESET_NEWS_DETAIL,LINK_FOR_ID} from "../../store/mutation-types";
+import { mapActions,mapGetters, mapMutations} from 'vuex';
+import {BLOG_DETAIL, BLOG_DETAIL_LIST, RESET_NEWS_DETAIL} from "../../store/mutation-types";
 
 
 export default{
@@ -13,26 +12,25 @@ export default{
     mounted(){
     },
     components:{
-        carousel,
         loader
     },
     computed:{
         ...mapGetters({
             newsDetail:'home/newsDetail',
-            linkForId: `home/linkForId`
-        })
-    },
-    methods:{
-        ...mapActions({
-            fetchContent: `home/${NEWS_DETAIL}`,
-        }),
-        ...mapMutations({
-            reset: `home/${RESET_NEWS_DETAIL}`
         })
     },
     created(){
-        this.fetchContent(this.currentId);
-        console.log(this.$router.currentRoute)
+        this.blogDetail(this.currentId);
+        this.blogDetailList();
+    },
+    methods:{
+        ...mapActions({
+            blogDetailList: `home/${BLOG_DETAIL_LIST}`
+        }),
+        ...mapMutations({
+            blogDetail: `home/${BLOG_DETAIL}`,
+            reset: `home/${RESET_NEWS_DETAIL}`
+        })
     },
     destroyed(){
         this.reset();

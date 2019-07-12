@@ -1,5 +1,7 @@
 export const AUTH = 'AUTH';
 
+export const BLOG_DETAIL = 'BLOG_DETAIL';
+export const BLOG_DETAIL_LIST = 'BLOG_DETAIL_LIST';
 export const NEWS_LIST = 'NEWS_LIST';
 export const NEWS_PAGE_LIST = 'NEWS_PAGE_LIST';
 export const NEWS_LIST_LIMIT = 'NEWS_LIST_LIMIT';
@@ -16,3 +18,6 @@ export const GALLERY_LIST = 'GALLERY_LIST';
 
 //AUTH
 export const AUTH_TOKEN = 'AUTH_TOKEN';
+
+//about
+export const ABOUT = 'ABOUT';

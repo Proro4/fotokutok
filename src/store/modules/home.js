@@ -9,6 +9,8 @@ import {
     LINK_FOR_ID,
     POP_UP_SUC,
     ALL_IMG,
+    BLOG_DETAIL,
+    BLOG_DETAIL_LIST
 
 } from '../mutation-types.js';
 import { storage } from '@/main';
@@ -91,22 +93,6 @@ const actions = {
                 })
         })
     },
-    [NEWS_DETAIL]: ({commit}, linkForId) => {
-        return new Promise((resolve, reject) => {
-            console.log(linkForId);
-            axios
-             .get('https://fotokutok-618c4.firebaseio.com/news/news-detail.json')
-                .then((response) =>{
-                    commit(NEWS_PAGE_LIST, response.data);
-                    commit(NEWS_DETAIL,  linkForId);
-                    resolve();
-
-                })
-                .catch((response) =>{
-                    reject(response);
-                })
-        })
-    },
     [NEWS_DETAIL_EDIT]: ({commit}, linkForId) => {
         return new Promise((resolve, reject) => {
             axios
@@ -120,13 +106,23 @@ const actions = {
                     reject(response);
                 })
         })
-    }
+    },
+    [BLOG_DETAIL_LIST]: ({commit}) => {
+        return new Promise((resolve, reject) => {
+            axios
+                .get('https://fotokutok-618c4.firebaseio.com/news/news-detail.json')
+                .then((response) => {
+                    commit(BLOG_DETAIL_LIST, response.data);
+                    resolve();
+                })
+                .catch((response) => {
+                    reject(response);
+                })
+        })
+    },
 };
 
 const mutations = {
-    [NEWS_LIST_LIMIT](state, status) {
-        state.newsListLimit = status;
-    },
     [NEWS_LIST](state, status) {
         state.allList = status;
         state.newsList = [];
@@ -141,6 +137,20 @@ const mutations = {
         state.newsList = state.newsList.slice(start, limit);
         state.sliderList = state.newsList.slice(0, 2);
     },
+    [BLOG_DETAIL_LIST](state, status){
+        state.newsList = [];
+        let key;
+        for(key in status){
+            state.newsList.push(status[key])
+        }
+        state.newsDetail = state.newsList[state.linkForId];
+    },
+    [BLOG_DETAIL](state,id){
+        state.linkForId = id;
+    },
+    [NEWS_LIST_LIMIT](state, status) {
+        state.newsListLimit = status;
+    },
     [ALL_IMG](state, status){
         state.allImg = status;
     },
@@ -150,9 +160,6 @@ const mutations = {
         for(key in status){
             state.newsList.push(status[key])
         }
-    },
-    [NEWS_DETAIL](state, newsDetail){
-        state.newsDetail = state.newsList[newsDetail];
     },
     [RESET_NEWS_DETAIL](state){
         state.newsList = state.newsList.reverse();

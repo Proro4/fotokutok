@@ -10,6 +10,7 @@
                     <span v-if="newsDetailList">
                         блог № {{newsDetailList.id}}
                     </span>
+                    {{newPost}}
                     <div class="add-block__form">
                         <label class="add-block__add-img">
                             <input class="add-block__img-input" type="file" @change="processFile($event)">

@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import Router from 'vue-router';
 import Home from './modules/home/index.vue'
+import About from './modules/about/index.vue'
 import NewsPage from './components/news-page/index.vue'
 import adminTab from './modules/admin-tab/index.vue'
 import adminBlogs from './modules/admin-tab/components/blogs/index.vue'
@@ -25,6 +26,11 @@ export default new Router({
             name:'home',
             path:'/',
             component:Home
+        },
+        {
+            name:'about',
+            path:'/about',
+            component:About
         },
         {
             name:'admin-tab',

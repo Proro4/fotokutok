@@ -16,6 +16,9 @@ body{
   overflow-x: hidden;
   background: url("../img/bck.jpg");
 }
+h1,h2,h3,h4,h5,h6{
+  font-family: 'Roboto-Bold';
+}
 .container{
   display: flex;
   justify-content: center;
@@ -90,5 +93,30 @@ body{
 }
 .butt-cansel{
   color: red;
+}
+//about
+.about{
+  margin-bottom: 50px;
+  &__title{
+    font-family: 'Roboto-Bold';
+    font-size:54px;
+    margin-bottom: 25px;
+  }
+  &__text{
+    margin-bottom: 25px;
+    font-family: 'Roboto-Regular';
+    font-size: 16px;
+  }
+  &__instagram{
+    color:black;
+    display: flex;
+    text-decoration: none;
+    align-items: center;
+    img{
+      height: 20px;
+      width: 20px;
+      margin-right: 10px;
+    }
+  }
 }
 @import "media";
