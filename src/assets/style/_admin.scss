@@ -150,6 +150,13 @@
       outline: none;
     }
   }
+  &__add-img{
+
+    img{
+      max-width: 250px;
+      max-height: 250px;
+    }
+  }
   &__name-input{
     height: 40px;
     width: 50%;

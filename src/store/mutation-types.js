@@ -13,6 +13,7 @@ export const LINK_ID = 'LINK_ID';
 export const LINK_FOR_ID = 'LINK_FOR_ID';
 export const POP_UP_SUC = 'POP_UP_SUC';
 export const ALL_IMG = 'ALL_IMG';
+export const BLOG_EDIT_ID = 'BLOG_EDIT_ID';
 //GALERY
 export const GALLERY_LIST = 'GALLERY_LIST';
 

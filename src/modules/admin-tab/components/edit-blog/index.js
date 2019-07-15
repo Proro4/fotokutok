@@ -19,7 +19,6 @@ export default{
                 id: "",
                 title:'',
                 date:'',
-                file:'',
                 imgUrl:"https://firebasestorage.googleapis.com/v0/b/fotokutok-618c4.appspot.com/o/no-photo.jpg?alt=media&token=a904dc5f-3095-42ac-b93b-60c5cb6fb339",
                 textShort:"",
                 text:"",
@@ -62,39 +61,32 @@ export default{
             this.newPost.date = day + " " + month + " " + year;
         },
         addBlog(){
+            this.newPost.date = this.newsDetailList.date;
+            this.newPost.title = this.newsDetailList.title;
+            this.newPost.text = this.newsDetailList.text;
+            this.newPost.textShort = this.newsDetailList.textShort;
+            this.newPost.imgUrl = this.newsDetailList.imgUrl;
+            this.newPost.id = this.newsDetailList.id;
+
             if(this.newPost.title == ''){
                 alert('Заполните название');
             }else if(this.newPost.textShort == ''){
                 alert('Заполните краткое описание');
             }else if(this.newPost.text == ''){
                 alert('Заполните описание');
-            }else if(this.newPost.file == ''){
-                alert('добавте фото');
             }
-            storage.ref().child(this.fileName).put(this.newPost.file).then((snapshot) => {
-                console.log('Uploaded a blob or file!');
+            axios.put(`https://fotokutok-618c4.firebaseio.com/news/news-detail/`+this.currentId+`.json`, this.newPost)
+                .then(response =>{
+                    console.log('then');
+                })
+                .catch(error => {
+                    console.log('catch');
+                })
+                .finally(() =>{
+                    console.log('finally');
+                    this.$router.push({name:"admin-tab"})
+                })
 
-                storage.ref().child(this.fileName).getDownloadURL()
-                    .then((url)=> {
-                        this.newPost.imgUrl = url;
-
-                    })
-                    .finally(()=>{
-
-                        axios.post(`https://fotokutok-618c4.firebaseio.com/news/news-detail.json`, this.newPost)
-                            .then(response =>{
-                                console.log('then');
-                            })
-                            .catch(error => {
-                                console.log('catch');
-                            })
-                            .finally(() =>{
-                                console.log('finally');
-                                this.$router.push({name:"admin-tab"})
-                            })
-                    })
-
-            });
             return this.newsListOst;
         },
 
@@ -144,10 +136,6 @@ export default{
         this.watchText();
         this.realDate();
         this.CurrentUser();
-        this.newPost.date = this.newsDetailList.date;
-        this.newPost.title = this.newsDetailList.title;
-        this.newPost.text = this.newsDetailList.text;
-        this.newPost.textShort = this.newsDetailList.textShort;
     },
     mounted(){
     },

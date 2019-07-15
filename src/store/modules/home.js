@@ -10,7 +10,8 @@ import {
     POP_UP_SUC,
     ALL_IMG,
     BLOG_DETAIL,
-    BLOG_DETAIL_LIST
+    BLOG_DETAIL_LIST,
+    BLOG_EDIT_ID
 
 } from '../mutation-types.js';
 import { storage } from '@/main';
@@ -30,6 +31,12 @@ const state = {
     storage: null,
     allList: null,
     sliderList: null,
+    deleteBlog: {
+        title: 'Удалить блог №',
+        text: 'Вы точно хотите удалть блог ?',
+        button:'Удалить',
+        funk: 'delete()'
+    },
 };
 
 const getters = {
@@ -45,6 +52,7 @@ const getters = {
     storage: state => state.storage,
     allList: state => state.allList,
     sliderList: state => state.sliderList,
+    deleteBlog: state => state.deleteBlog,
 };
 
 const actions = {
@@ -97,7 +105,7 @@ const actions = {
         return new Promise((resolve, reject) => {
             axios
              .get('https://fotokutok-618c4.firebaseio.com/news/news-detail/'+linkForId+'.json')
-                .then((response) =>{ 
+                .then((response) =>{
                     commit(NEWS_DETAIL_EDIT, response.data);
                     resolve();
 

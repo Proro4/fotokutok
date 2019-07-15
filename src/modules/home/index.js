@@ -50,10 +50,11 @@
         created(){
             this.fetchContent();
             this.newsLimit(this.newsListLimit)
+            console.log(this.news);
         },
         firestore () {
             return {
-                locations: db.collection('news')
+                news: db.collection('news')
             }
         },
         directives: {
