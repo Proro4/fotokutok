@@ -11,7 +11,10 @@ import {
     ALL_IMG,
     BLOG_DETAIL,
     BLOG_DETAIL_LIST,
-    BLOG_EDIT_ID
+    BLOG_EDIT_ID,
+    DEL_BLOG,
+    DEL_POPUP,
+    DEL_ID,
 
 } from '../mutation-types.js';
 import { storage } from '@/main';
@@ -31,11 +34,12 @@ const state = {
     storage: null,
     allList: null,
     sliderList: null,
+    deletePopup: false,
+    delId: null,
     deleteBlog: {
         title: 'Удалить блог №',
         text: 'Вы точно хотите удалть блог ?',
         button:'Удалить',
-        funk: 'delete()'
     },
 };
 
@@ -53,6 +57,8 @@ const getters = {
     allList: state => state.allList,
     sliderList: state => state.sliderList,
     deleteBlog: state => state.deleteBlog,
+    deletePopup: state => state.deletePopup,
+    delId: state => state.delId,
 };
 
 const actions = {
@@ -131,6 +137,12 @@ const actions = {
 };
 
 const mutations = {
+    [DEL_ID](state, id){
+      state.delId = id;
+    },
+    [DEL_POPUP](state, bool){
+        state.deletePopup = bool;
+    },
     [NEWS_LIST](state, status) {
         state.allList = status;
         state.newsList = [];
@@ -140,6 +152,13 @@ const mutations = {
         for(key in status){
             state.newsList.push(status[key])
         }
+        let colList = state.newsList.length-1;
+        let numbId = -1;
+        state.newsList.forEach((item)=>{
+            ++numbId;
+           return item.id =numbId;
+        })
+        console.log(state.newsList);
         state.newsList = state.newsList.reverse();
         state.newsListMax = state.newsList.length;
         state.newsList = state.newsList.slice(start, limit);

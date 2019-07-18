@@ -77,10 +77,8 @@ export default{
                 storage.ref().child(this.fileName).getDownloadURL()
                     .then((url)=> {
                         this.newPost.imgUrl = url;
-
                     })
                     .finally(()=>{
-
                         axios.post(`https://fotokutok-618c4.firebaseio.com/news/news-detail.json`, this.newPost)
                             .then(response =>{
                                 console.log('then');

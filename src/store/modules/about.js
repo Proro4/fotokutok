@@ -7,7 +7,7 @@ import {storage} from '@/main';
 import axios from 'axios';
 
 const state = {
-    aboutMe: [],
+    aboutMe:null,
 };
 
 const getters = {
@@ -32,10 +32,7 @@ const actions = {
 
 const mutations = {
     [ABOUT](state, status) {
-        let key;
-        for (key in status) {
-            state.aboutMe[key] = status[key];
-        }
+        state.aboutMe = status;
     },
 };
 

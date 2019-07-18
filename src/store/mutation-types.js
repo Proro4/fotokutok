@@ -14,6 +14,14 @@ export const LINK_FOR_ID = 'LINK_FOR_ID';
 export const POP_UP_SUC = 'POP_UP_SUC';
 export const ALL_IMG = 'ALL_IMG';
 export const BLOG_EDIT_ID = 'BLOG_EDIT_ID';
+export const DEL_BLOG = 'DEL_BLOG';
+export const DEL_POPUP = 'DEL_POPUP';
+export const DEL_ID = 'DEL_ID';
+
+// OPTIONS
+export const OPTIONS = 'OPTIONS';
+export const OPTIONS_SAVE = 'OPTIONS_SAVE';
+export const POPUP_ALBUM = 'POPUP_ALBUM';
 //GALERY
 export const GALLERY_LIST = 'GALLERY_LIST';
 

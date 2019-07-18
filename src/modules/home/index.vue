@@ -3,6 +3,7 @@
         <div class="row-m">
             <div class="home-top">
                 <div class="home-slider"
+                     v-show="options.slider"
                      v-if="sliderList != null">
                     <carousel
                             :items="1"

@@ -3,8 +3,14 @@
       <Header></Header>
       <router-view></router-view>
       <Footer> </Footer>
-      <div v-if="popUpSuc == true">
+      <div v-if="popUpSuc">
          <popUpSuc></popUpSuc>
+      </div>
+      <div v-if="getDeletePopup">
+          <popUp></popUp>
+      </div>
+      <div v-if="popupAlbum">
+        <popUpAlbum></popUpAlbum>
       </div>
   </div>
 </template>
@@ -15,16 +21,22 @@
     import Header from './components/header/index.vue'
     import Footer from './components/footer/index.vue'
     import popUpSuc from './components/pop-up__suc/index.vue'
+    import popUp from './modules/admin-tab/components/blogs/pop-up/index.vue'
+    import popUpAlbum from './modules/admin-tab/components/options/popup-album/index.vue'
 
 export default {
     components:{
         Header,
         Footer,
-        popUpSuc
+        popUpSuc,
+        popUp,
+        popUpAlbum,
     },
     computed: {
         ...mapGetters({
-            popUpSuc: `home/popUpSuc`
+            popUpSuc: `home/popUpSuc`,
+            getDeletePopup: `home/deletePopup`,
+            popupAlbum: `options/popupAlbum`
         })
     }
 }

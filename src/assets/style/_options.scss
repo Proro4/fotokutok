@@ -1,0 +1,28 @@
+.options{
+  padding: 20px 0 40px;
+  &__title{
+    font-size: 18px;
+    font-family: 'Roboto-Bold';
+  }
+  &__content{
+
+  }
+  &__label{
+    padding: 15px 0 10px;
+    border-bottom: 1px solid #d4d4d4;
+  }
+  &__album{
+    display: flex;
+    flex-wrap: wrap;
+    width: 75vw;
+    justify-content: center;
+  }
+  &__album-item{
+    margin: 5px;
+    img{
+      height: 250px;
+      width: 250px;
+      object-fit: cover;
+    }
+  }
+}

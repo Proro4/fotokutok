@@ -112,19 +112,20 @@ export default{
             });
         },
         addParagraph(){
-            this.newPost.text = this.newPost.text + '<br>'
+            console.log('111');
+            this.newsDetailList.text = this.newsDetailList.text + '<br>\n'
         },
         addBold(){
-            this.newPost.text = this.newPost.text + '<b></b>'
+            this.newsDetailList.text = this.newsDetailList.text + '<b></b>'
         },
         addList(){
-            this.newPost.text = this.newPost.text + '\n<ul>\n \t<li></li>\n</ul>'
+            this.newsDetailList.text = this.newsDetailList.text + '\n<ul>\n \t<li></li>\n</ul>'
         },
         addUnderline(){
-            this.newPost.text = this.newPost.text + '<u></u>'
+            this.newsDetailList.text = this.newsDetailList.text + '<u></u>'
         },
         addStrike(){
-            this.newPost.text = this.newPost.text + '<strike></strike>'
+            this.newsDetailList.text = this.newsDetailList.text + '<strike></strike>'
         }
     },
     watch:{

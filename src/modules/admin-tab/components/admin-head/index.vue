@@ -12,7 +12,7 @@
                                 <a href="#" class="admin-head__link">Новости</a>
                             </li>
                             <li class="admin-head__item">
-                                <a href="#" class="admin-head__link">Настройки</a>
+                                <router-link :to="{name:'options'}" class="admin-head__link">Настройки</router-link>
                             </li>
                         </ul>
                     </div>

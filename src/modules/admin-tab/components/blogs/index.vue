@@ -4,7 +4,7 @@
         <div class="admin-blogs">
             <div class="container">
                 <div class="row-b">
-                    <div class="admin-blogs__list">
+                    <div class="admin-blogs__list" v-if="newsList">
                         <div class="admin-blogs__item"
                             v-for="(item, index) in newsList"
                             :key="index">
@@ -21,10 +21,15 @@
                             </div>
                             <div class="admin-blogs__item-edit">
                                 <router-link class="admin-blogs__change" :to="{name:'edit-blog', params: {id: Object.keys(newsList)[item.id]}}">Редактировать</router-link>
-                                <a class="admin-blogs__del" href="#">Удалить</a>
+                                <a class="admin-blogs__del" @click="deletePopupOpen(Object.keys(newsList)[item.id])" href="#">
+                                        Удалить
+                                </a>
                             </div>
                         </div>
                         <router-link :to="{name:'add-blog'}" class="admin-blogs__add-blog"><font-awesome-icon icon="plus-circle" /> Добавить блог</router-link>
+                    </div>
+                    <div v-else>
+                        <loader></loader>
                     </div>
                 </div>
             </div>

@@ -17,6 +17,7 @@ import '@fortawesome/fontawesome-free/css/all.css';
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
+import VueGallery from 'vue-gallery';
 
 
 Vue.component('font-awesome-icon', FontAwesomeIcon) // Register component globally
@@ -35,6 +36,8 @@ Vue.config.productionTip = false;
 Vue.use(Vuex);
 Vue.use(Vuex,axios);
 Vue.use(firestorePlugin);
+Vue.use(VueGallery);
+
 //
 
 firebase.initializeApp({

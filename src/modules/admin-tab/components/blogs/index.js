@@ -1,7 +1,11 @@
 import loader from '../../../../components/loader/index.vue'
 import adminHead from '../admin-head/index.vue'
-import {mapActions, mapGetters} from 'vuex';
-import {NEWS_LIST} from "../../../../store/mutation-types";
+import {mapActions, mapGetters, mapMutations} from 'vuex';
+import {
+    NEWS_LIST,
+    DEL_POPUP,
+    DEL_ID,
+} from "../../../../store/mutation-types";
 import {auth} from "@/main";
 
 
@@ -16,12 +20,16 @@ export default{
     },
     computed:{
         ...mapGetters({
-            newsList:'home/allList'
+            newsList:'home/allList',
         })
     },
     methods:{
         ...mapActions({
             fetchContent: `home/${NEWS_LIST}`
+        }),
+        ...mapMutations({
+            delId: `home/${DEL_ID}`,
+            deletePopup: `home/${DEL_POPUP}`
         }),
         CurrentUser(){
             auth.onAuthStateChanged((user)=> {
@@ -31,6 +39,11 @@ export default{
                     this.$router.push({name:"auth"})
                 }
             });
+        },
+        deletePopupOpen(id){
+            this.delId(id);
+            this.deletePopup(true)
+
         }
     },
     created(){

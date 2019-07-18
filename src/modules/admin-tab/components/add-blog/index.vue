@@ -8,7 +8,7 @@
                         Создание нового блога
                     </div>
                     <span v-if="newsList">
-                        блог № {{newPost.id = Object.keys(newsList).length}}
+                        блог № {{newPost.id = Object.keys(newsList).length + 1}}
                     </span>
                     <div class="add-block__form">
                         <label class="add-block__add-img">

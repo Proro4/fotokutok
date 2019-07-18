@@ -9,7 +9,9 @@ export default{
     },
     created(){
       this.fetchAbout();
-      console.log(this.aboutMe)
+    },
+    components:{
+        loader
     },
     computed:{
         ...mapGetters({

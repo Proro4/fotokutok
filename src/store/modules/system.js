@@ -12,7 +12,7 @@ const getters = {
 };
 
 const actions = {
-    [AUTH]: ({commit}) => {
+    [AUTH]: ({commit}) => {DEL_BLOG
         return new Promise((resolve, reject) => {
             axios
                 .get('')
