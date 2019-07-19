@@ -5,6 +5,7 @@ import {
 } from '../mutation-types.js';
 
 import axios from 'axios';
+import VueGallery from 'vue-gallery';
 
 const state = {
     options: null,

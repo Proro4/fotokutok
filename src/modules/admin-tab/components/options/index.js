@@ -6,22 +6,29 @@ import {
     OPTIONS_SAVE, POPUP_ALBUM
 } from "../../../../store/mutation-types";
 import loader from '../../../../components/loader/index.vue'
+import VueGallery from "vue-gallery";
 
 
 export default {
     data() {
         return{
             tile: false,
+            index: 0,
+            bckImg: null,
         };
     },
     components: {
         adminHead,
-        loader
+        loader,
+        'gallery': VueGallery
     },
     computed: {
         ...mapGetters({
             options: 'options/options'
         })
+    },
+    watch: {
+
     },
     created() {
         this.CurrentUser();

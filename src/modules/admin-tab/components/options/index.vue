@@ -1,6 +1,8 @@
 <template>
     <div>
         <adminHead></adminHead>
+        <gallery :images="options.background" :index="index" @close="index = null"></gallery>
+
         <div class="container">
             <v-app class="row-b">
 
@@ -21,8 +23,9 @@
                             <span>Фото</span>
                             <v-btn color="primary" @click="popupAlbum(true)">открыть</v-btn>
                         </div>
-                        <div class="options__label">
+                        <div class="options__label background">
                             <span>Бекграунд</span>
+                            <img class="options__background" :src="options.background" alt="" @click="index = imageIndex">
                         </div>
                         <div class="options__label">
                             <span>Кнопки</span>
