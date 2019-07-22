@@ -6,6 +6,7 @@
                 <div class="row-m"> 
                     <div class="add-block__title">
                         Создание нового блога
+                        {{fileName}}
                     </div>
                     <span v-if="newsList">
                         блог № {{newPost.id = Object.keys(newsList).length + 1}}

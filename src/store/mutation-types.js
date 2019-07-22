@@ -22,6 +22,8 @@ export const DEL_ID = 'DEL_ID';
 export const OPTIONS = 'OPTIONS';
 export const OPTIONS_SAVE = 'OPTIONS_SAVE';
 export const POPUP_ALBUM = 'POPUP_ALBUM';
+export const POPUP_BCK = 'POPUP_BCK';
+export const OPTIONS_CHANGE = 'OPTIONS_CHANGE';
 //GALERY
 export const GALLERY_LIST = 'GALLERY_LIST';
 

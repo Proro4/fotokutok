@@ -1,7 +1,7 @@
 <template>
     <div>
         <adminHead></adminHead>
-        <gallery :images="options.background" :index="index" @close="index = null"></gallery>
+        <gallery :images="optionsBck" :index="index" @close="index = null"></gallery>
 
         <div class="container">
             <v-app class="row-b">
@@ -16,7 +16,6 @@
                                 <v-switch
                                         v-model="options.slider"
                                         label="Выкл/Вкл">
-
                                 </v-switch>
                         </div>
                         <div class="options__label">
@@ -25,10 +24,14 @@
                         </div>
                         <div class="options__label background">
                             <span>Бекграунд</span>
-                            <img class="options__background" :src="options.background" alt="" @click="index = imageIndex">
-                        </div>
-                        <div class="options__label">
-                            <span>Кнопки</span>
+                              <img class="options__background"
+                                   v-for="(item, imageIndex) in optionsBck"
+                                   key="imageIndex"
+                                   :src="item" alt=""
+                                   @click="index = imageIndex">
+                            <div class="options__change">
+                                <v-btn @click="popupBck(true)">заменить</v-btn>
+                            </div>
                         </div>
                         <div class="options__label">
                             <span>Страницы</span>

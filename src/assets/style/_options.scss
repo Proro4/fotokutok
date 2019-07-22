@@ -30,9 +30,13 @@
     }
   }
   &__background{
+    margin-left: 10px;
     height: 125px;
     width: 125px;
     object-fit: cover;
     border-radius: 5px;
+    &:nth-child(2n){
+      display: none;
+    }
   }
 }

@@ -1,5 +1,9 @@
 <template>
   <div id="app">
+      <div v-if="options">
+          <div class="bck" v-bind:style="{ backgroundImage: 'url(' + options.bck.bckUrl + ')',backgroundSize: 'cover'}" v-if="options.bck.bckSelection"></div>
+          <div class="bck" :style="{background: options.bck.bckColor}" v-else></div>
+      </div>
       <Header></Header>
       <router-view></router-view>
       <Footer> </Footer>
@@ -12,6 +16,9 @@
       <div v-if="popupAlbum">
         <popUpAlbum></popUpAlbum>
       </div>
+      <div v-if="popupBck">
+        <popUpBck></popUpBck>
+      </div>
   </div>
 </template>
 
@@ -23,21 +30,42 @@
     import popUpSuc from './components/pop-up__suc/index.vue'
     import popUp from './modules/admin-tab/components/blogs/pop-up/index.vue'
     import popUpAlbum from './modules/admin-tab/components/options/popup-album/index.vue'
+    import popUpBck from './modules/admin-tab/components/options/popup-bck/index.vue'
+
+    import {
+        OPTIONS,
+    } from "./store/mutation-types";
 
 export default {
+    data(){
+      return{
+          bckColor:'#000000'
+      }
+    },
     components:{
         Header,
         Footer,
         popUpSuc,
         popUp,
         popUpAlbum,
+        popUpBck,
     },
     computed: {
         ...mapGetters({
             popUpSuc: `home/popUpSuc`,
             getDeletePopup: `home/deletePopup`,
-            popupAlbum: `options/popupAlbum`
+            popupAlbum: `options/popupAlbum`,
+            popupBck: `options/popupBck`,
+            options: 'options/options',
         })
+    },
+    created() {
+      this.fetchOptions();
+    },
+    methods: {
+        ...mapActions({
+            fetchOptions: `options/${OPTIONS}`,
+        }),
     }
 }
 </script>

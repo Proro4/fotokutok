@@ -3,7 +3,9 @@ import {mapGetters,mapActions, mapMutations} from 'vuex'
 import {auth} from "@/main";
 import {
     OPTIONS,
-    OPTIONS_SAVE, POPUP_ALBUM
+    OPTIONS_SAVE,
+    POPUP_ALBUM,
+    POPUP_BCK
 } from "../../../../store/mutation-types";
 import loader from '../../../../components/loader/index.vue'
 import VueGallery from "vue-gallery";
@@ -24,11 +26,9 @@ export default {
     },
     computed: {
         ...mapGetters({
-            options: 'options/options'
+            options: 'options/options',
+            optionsBck: 'options/optionsBck',
         })
-    },
-    watch: {
-
     },
     created() {
         this.CurrentUser();
@@ -40,7 +40,8 @@ export default {
             postOptions: `options/${OPTIONS_SAVE}`,
         }),
         ...mapMutations({
-            popupAlbum: `options/${POPUP_ALBUM}`
+            popupAlbum: `options/${POPUP_ALBUM}`,
+            popupBck: `options/${POPUP_BCK}`,
         }),
         saveOptions(){
             this.postOptions(this.options);
