@@ -15,16 +15,18 @@ import {
     DEL_BLOG,
     DEL_POPUP,
     DEL_ID,
+    NEWS_ADD_VIEW,
+    NEWS_REAL_ID
 
 } from '../mutation-types.js';
-import { storage } from '@/main';
+import {storage} from '@/main';
 
 import axios from 'axios';
 
 const state = {
     newsList: [],
     newsDetailList: [],
-    newsListLimit: [0,4],
+    newsListLimit: [0, 4],
     newsListMax: null,
     newsDetail: null,
     sendNewBlog: null,
@@ -36,10 +38,12 @@ const state = {
     sliderList: null,
     deletePopup: false,
     delId: null,
+    newsRealId: null,
+    newsAddView: null,
     deleteBlog: {
         title: 'Удалить блог №',
         text: 'Вы точно хотите удалть блог ?',
-        button:'Удалить',
+        button: 'Удалить',
     },
 };
 
@@ -58,6 +62,8 @@ const getters = {
     sliderList: state => state.sliderList,
     deleteBlog: state => state.deleteBlog,
     deletePopup: state => state.deletePopup,
+    newsRealId: state => state.newsRealId,
+    newsAddView: state => state.newsAddView,
     delId: state => state.delId,
 };
 
@@ -65,8 +71,8 @@ const actions = {
     [ADD_POST]: ({commit}, sendNewBlog) => {
         return new Promise((resolve, reject) => {
             axios
-                .post('https://fotokutok-618c4.firebaseio.com/news/news-detail' , sendNewBlog)
-                .then(response =>{
+                .post('https://fotokutok-618c4.firebaseio.com/news/news-detail', sendNewBlog)
+                .then(response => {
                     commit(ADD_POST);
                     resolve(response);
                     console.log('then');
@@ -75,7 +81,7 @@ const actions = {
                     reject(error)
                     console.log('catch');
                 })
-                .finally(() =>{
+                .finally(() => {
                     console.log('finally');
                 })
 
@@ -110,13 +116,13 @@ const actions = {
     [NEWS_DETAIL_EDIT]: ({commit}, linkForId) => {
         return new Promise((resolve, reject) => {
             axios
-             .get('https://fotokutok-618c4.firebaseio.com/news/news-detail/'+linkForId+'.json')
-                .then((response) =>{
+                .get('https://fotokutok-618c4.firebaseio.com/news/news-detail/' + linkForId + '.json')
+                .then((response) => {
                     commit(NEWS_DETAIL_EDIT, response.data);
                     resolve();
 
                 })
-                .catch((response) =>{
+                .catch((response) => {
                     reject(response);
                 })
         })
@@ -134,13 +140,27 @@ const actions = {
                 })
         })
     },
+    [NEWS_ADD_VIEW]: async ({commit}, playload) => {
+        try {
+            let result = await axios.put('https://fotokutok-618c4.firebaseio.com/news/news-detail/' + playload.linkId + '/view.json', playload.view);
+            commit(NEWS_ADD_VIEW, result.data)
+        } catch (e) {
+            throw e
+        }
+    }
 };
 
 const mutations = {
-    [DEL_ID](state, id){
-      state.delId = id;
+    [NEWS_ADD_VIEW](state, id) {
+        state.newsAddView = id;
     },
-    [DEL_POPUP](state, bool){
+    [NEWS_REAL_ID](state, id) {
+        state.newsRealId = id;
+    },
+    [DEL_ID](state, id) {
+        state.delId = id;
+    },
+    [DEL_POPUP](state, bool) {
         state.deletePopup = bool;
     },
     [NEWS_LIST](state, status) {
@@ -149,14 +169,14 @@ const mutations = {
         let start = state.newsListLimit[0];
         let limit = state.newsListLimit[1];
         let key;
-        for(key in status){
+        for (key in status) {
             state.newsList.push(status[key])
         }
-        let colList = state.newsList.length-1;
+        let colList = state.newsList.length - 1;
         let numbId = -1;
-        state.newsList.forEach((item)=>{
+        state.newsList.forEach((item) => {
             ++numbId;
-           return item.id =numbId;
+            return item.id = numbId;
         })
         console.log(state.newsList);
         state.newsList = state.newsList.reverse();
@@ -164,41 +184,41 @@ const mutations = {
         state.newsList = state.newsList.slice(start, limit);
         state.sliderList = state.newsList.slice(0, 2);
     },
-    [BLOG_DETAIL_LIST](state, status){
+    [BLOG_DETAIL_LIST](state, status) {
         state.newsList = [];
         let key;
-        for(key in status){
+        for (key in status) {
             state.newsList.push(status[key])
         }
         state.newsDetail = state.newsList[state.linkForId];
     },
-    [BLOG_DETAIL](state,id){
+    [BLOG_DETAIL](state, id) {
         state.linkForId = id;
     },
     [NEWS_LIST_LIMIT](state, status) {
         state.newsListLimit = status;
     },
-    [ALL_IMG](state, status){
+    [ALL_IMG](state, status) {
         state.allImg = status;
     },
-    [NEWS_PAGE_LIST](state, status){
+    [NEWS_PAGE_LIST](state, status) {
         state.newsList = [];
         let key;
-        for(key in status){
+        for (key in status) {
             state.newsList.push(status[key])
         }
     },
-    [RESET_NEWS_DETAIL](state){
+    [RESET_NEWS_DETAIL](state) {
         state.newsList = state.newsList.reverse();
         state.newsDetail = null;
     },
-    [ADD_POST](state, status){
+    [ADD_POST](state, status) {
         state.sendNewBlog = status;
     },
-    [LINK_FOR_ID](state, status){
+    [LINK_FOR_ID](state, status) {
         state.linkForId = status;
     },
-    [POP_UP_SUC](state, status){
+    [POP_UP_SUC](state, status) {
         state.popUpSuc = status;
     },
     [NEWS_DETAIL_EDIT](state, status) {

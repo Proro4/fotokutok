@@ -17,6 +17,8 @@ export const BLOG_EDIT_ID = 'BLOG_EDIT_ID';
 export const DEL_BLOG = 'DEL_BLOG';
 export const DEL_POPUP = 'DEL_POPUP';
 export const DEL_ID = 'DEL_ID';
+export const NEWS_ADD_VIEW = 'NEWS_ADD_VIEW';
+export const NEWS_REAL_ID = 'NEWS_REAL_ID';
 
 // OPTIONS
 export const OPTIONS = 'OPTIONS';
@@ -32,3 +34,4 @@ export const AUTH_TOKEN = 'AUTH_TOKEN';
 
 //about
 export const ABOUT = 'ABOUT';
+export const ABOUT_CHANGE = 'ABOUT_CHANGE';

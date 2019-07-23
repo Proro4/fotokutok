@@ -44,7 +44,10 @@ export default {
             popupBck: `options/${POPUP_BCK}`,
         }),
         saveOptions(){
-            this.postOptions(this.options);
+            this.postOptions(this.options)
+                .then(
+                    this.$toaster.success('Изменения сохранены')
+                );
         },
         CurrentUser() {
             auth.onAuthStateChanged((user) => {

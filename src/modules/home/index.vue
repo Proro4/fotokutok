@@ -32,7 +32,7 @@
                         <div class="news__list-block"
                             v-if="newsList != null"
                             v-for="(item, index) in newsList"
-                            @click="linkForId(Object.keys(newsList)[item.id])"
+                            @click="linkForId(Object.keys(newsList)[item.id]), idStatus(Object.keys(allList)[item.id])"
                             :key="index">
                             <router-link
                                     :to="{name:'news-page', params: {id: item.id}}"
@@ -47,7 +47,6 @@
                                     </div>
                                     <div class="news__item-info">
                                         <div class="news__item-date"> {{item.date}}</div>
-                                        <!--<div class="news__item-view">3</div>-->
                                     </div>
                                     <div class="news__item-text">
                                         {{item.textShort}}

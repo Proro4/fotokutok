@@ -7,7 +7,7 @@
             <v-app class="row-b">
 
                 <div class="options" v-if="options">
-                    <div class="options__title">
+                    <div class="title">
                         Настройки
                     </div>
                     <div class="options__content">
@@ -34,7 +34,11 @@
                             </div>
                         </div>
                         <div class="options__label">
-                            <span>Страницы</span>
+                            <span>Обо мне</span>
+                            <v-switch class="selectionTypeBck"
+                                      v-model="options.aboutSwitch"
+                                      label="Скрыть/Показать">
+                            </v-switch>
                         </div>
                     </div>
                     <v-btn color="green" dark @click="saveOptions()">Сохранить</v-btn>

@@ -8,9 +8,9 @@
                     </router-link>
                 </div>
                 <ul class="header__menu">
-                    <li class="header__menu-item">
+                    <li class="header__menu-item" v-if="options">
                         <router-link :to="{name: 'home'}" class="header__menu-link">Блог</router-link>
-                        <router-link :to="{name: 'about'}" class="header__menu-link">Обо мне</router-link>
+                        <router-link v-if="options.aboutSwitch" :to="{name: 'about'}" class="header__menu-link">Обо мне</router-link>
                     </li>
                 </ul>
             </div>

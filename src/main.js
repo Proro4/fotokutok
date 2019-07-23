@@ -18,7 +18,10 @@ import { library } from '@fortawesome/fontawesome-svg-core'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 import { fas } from '@fortawesome/free-solid-svg-icons'
 import VueGallery from 'vue-gallery';
+import Toaster from 'v-toaster';
+import 'v-toaster/dist/v-toaster.css';
 
+Vue.use(Toaster, {timeout: 5000});
 
 Vue.component('font-awesome-icon', FontAwesomeIcon) // Register component globally
 library.add(fas) // Include needed icons.

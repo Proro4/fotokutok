@@ -47,7 +47,6 @@ const actions = {
     [OPTIONS_CHANGE]: async  ({commit}, playload) => {
         try {
             let result = await axios.put('https://fotokutok-618c4.firebaseio.com/options/bck.json', playload);
-            console.log(result);
             commit(OPTIONS_CHANGE, result.data);
         }catch (e) {
             throw e

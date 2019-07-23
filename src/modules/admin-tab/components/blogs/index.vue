@@ -15,6 +15,13 @@
                                 <div class="admin-blogs__item-title">
                                     {{item.title}}
                                 </div>
+                                <div class="admin-blogs__item-date">
+                                    {{item.date}}
+                                </div>
+                                <div class="admin-blogs__item-date">
+                                    <font-awesome-icon class="eye" icon="eye"/>
+                                    {{item.view}}
+                                </div>
                                 <div class="admin-blogs__item-text">
                                     {{item.textShort}}
                                 </div>

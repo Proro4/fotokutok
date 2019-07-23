@@ -9,10 +9,7 @@
                                 <router-link :to="{name:'admin-blogs'}" class="admin-head__link">Блог</router-link>
                             </li>
                             <li class="admin-head__item">
-                                <a href="#" class="admin-head__link">Обо мне</a>
-                            </li>
-                            <li class="admin-head__item">
-                                <a href="#" class="admin-head__link">Новости</a>
+                                <router-link :to="{name: 'adminAbout'}" class="admin-head__link">Обо мне</router-link>
                             </li>
                             <li class="admin-head__item">
                                 <router-link :to="{name:'options'}" class="admin-head__link">Настройки</router-link>

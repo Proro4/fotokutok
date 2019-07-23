@@ -2,10 +2,12 @@
     import loader from '@/components/loader/index.vue'
     import {mapActions, mapGetters, mapMutations} from 'vuex';
     import {
-    LINK_FOR_ID,
-    NEWS_LIST,
-    POP_UP_SUC,
-    NEWS_LIST_LIMIT, OPTIONS
+        LINK_FOR_ID,
+        NEWS_LIST,
+        POP_UP_SUC,
+        NEWS_LIST_LIMIT,
+        OPTIONS,
+        NEWS_REAL_ID
 } from "../../store/mutation-types";
 
     import { db } from '../../main';
@@ -42,6 +44,7 @@
                 linkForId: `home/${LINK_FOR_ID}`,
                 popUpSuc: `home/${POP_UP_SUC}`,
                 newsLimit: `home/${NEWS_LIST_LIMIT}`,
+                newsRealId: `home/${NEWS_REAL_ID}`
 
             }),
             changeLimit(){
@@ -49,12 +52,14 @@
                 this.fetchContent();
                 this.newsLimit(this.newsListLimit)
             },
+            idStatus(item){
+                this.newsRealId(item)
+            }
         },
         created(){
             this.fetchContent();
             this.fetchOptions();
             this.newsLimit(this.newsListLimit)
-            console.log(this.news);
         },
         firestore () {
             return {
