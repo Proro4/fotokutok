@@ -97,4 +97,19 @@
   .header__menu-link:first-child{
     margin-left: 0;
   }
+  .add-block__add-img img{
+    max-width: 100%;
+  }
+  .add-block__name-input{
+    width: 100%;
+  }
+  .admin-pages__cos-links input,
+  .admin-pages__title input,
+  .add-block__text-input,
+  .add-block__textShort .add-block__text-input{
+    width: 100%;
+  }
+  .options__label.background{
+    flex-direction: column;
+  }
 }

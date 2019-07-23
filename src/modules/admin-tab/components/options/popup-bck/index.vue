@@ -7,7 +7,7 @@
                Бэкграунд
             </div>
             <div class="options__bck">
-                <v-btn v-if="options.bckSelection"><input type="file" @change="processFile($event)">Картинка</v-btn>
+                <v-btn v-if="options.bckSelection"><input type="file" @change="processFile($event)"></v-btn>
                 <div class="colorBck" v-else>
                     <v-btn @click="openColor(true)">Цвет</v-btn>
                     <div class="showColorBck" :style="{background: this.options.bckColor}"></div>
